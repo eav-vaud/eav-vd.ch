@@ -11,10 +11,33 @@ collections:
     folder: "content/blog"
     create: true
     slug: "{{slug}}"
-    editor:
-     preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/pages/apropos.md"
+        label: "A propos"
+        name: "apropos"
+        fields:
+          - {label: "Template", name: "template", widget: "hidden", default: "page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "src/pages/ressources.md"
+        label: "Ressources"
+        name: "ressources"
+        fields:
+          - {label: "Template", name: "template", widget: "hidden", default: "page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "src/pages/contact.md"
+        label: "Contact"
+        name: "contact"
+        fields:
+          - {label: "Template", name: "template", widget: "hidden", default: "page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
