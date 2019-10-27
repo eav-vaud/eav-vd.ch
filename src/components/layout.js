@@ -60,7 +60,18 @@ class Layout extends React.Component {
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
-        <header>{header}</header>
+        <header>
+          {header}
+          <Link style={{marginRight: rhythm(1)}} to="/apropos">
+            A propos
+          </Link>
+          <Link style={{marginRight: rhythm(1)}} to="/ressources">
+            Ressources
+          </Link>
+          <Link to="/contact">
+            Contact
+          </Link>
+        </header>
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
