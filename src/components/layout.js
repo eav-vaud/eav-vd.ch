@@ -54,9 +54,12 @@ class Layout extends React.Component {
     return (
       <div
         style={{
+          display: `flex`,
+          flexDirection: `column`,
           marginLeft: `auto`,
           marginRight: `auto`,
           maxWidth: rhythm(24),
+          minHeight: `100vh`,
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
@@ -72,7 +75,13 @@ class Layout extends React.Component {
             Contact
           </Link>
         </header>
-        <main>{children}</main>
+        <main
+          style={{
+            flexGrow: 1,
+          }}
+        >
+          {children}
+        </main>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
