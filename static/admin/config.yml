@@ -34,6 +34,10 @@ collections:
           - {label: "Template", name: "template", widget: "hidden", default: "page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
+          - label: "Files"
+            name: "files"
+            widget: "list"
+            field: {label: "File", name: "file", widget: "file"}
       - file: "src/pages/contact.md"
         label: "Contact"
         name: "contact"
