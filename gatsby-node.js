@@ -31,20 +31,20 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges
+  // Create pages.
+  const pages = result.data.allMarkdownRemark.edges
 
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
+  pages.forEach((page, index) => {
+    const previous = index === pages.length - 1 ? null : pages[index + 1].node
+    const next = index === 0 ? null : pages[index - 1].node
 
     createPage({
-      path: post.node.fields.slug,
+      path: page.node.fields.slug,
       component: path.resolve(
-          `src/templates/${String(post.node.frontmatter.template)}.js`
+          `src/templates/${String(page.node.frontmatter.template)}.js`
         ),
       context: {
-        slug: post.node.fields.slug,
+        slug: page.node.fields.slug,
         previous,
         next,
       },

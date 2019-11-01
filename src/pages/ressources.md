@@ -1,5 +1,5 @@
 ---
-template: page
+template: resources
 title: Ressources
 files:
   - /img/eav-vaud-statuts-2017.pdf
