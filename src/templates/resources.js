@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -24,6 +24,7 @@ class ResourcesTemplate extends React.Component {
               {post.frontmatter.title}
             </h1>
           </header>
+          <section dangerouslySetInnerHTML={{ __html: post.html }} />
           <section>
             <ul>
               {post.frontmatter.files.map(file => (
@@ -31,7 +32,6 @@ class ResourcesTemplate extends React.Component {
               ))}
             </ul>
           </section>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
       </Layout>
     )
