@@ -12,7 +12,7 @@ class ResourcesTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title={post.frontmatter.title}/>
+        <SEO title={post.frontmatter.title} />
         <article>
           <header>
             <h1
@@ -27,8 +27,10 @@ class ResourcesTemplate extends React.Component {
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
           <section>
             <ul>
-              {post.frontmatter.files.map(file => (
-                <li><a href={file}>{file}</a></li>
+              {post.frontmatter.files.map((file, index) => (
+                <li key={index}>
+                  <a href={file}>{file}</a>
+                </li>
               ))}
             </ul>
           </section>
