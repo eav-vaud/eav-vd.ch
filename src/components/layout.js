@@ -65,6 +65,9 @@ class Layout extends React.Component {
       >
         <header>
           {header}
+          <Link style={{marginRight: rhythm(1)}} to="/actualites">
+            Actualités
+          </Link>
           <Link style={{marginRight: rhythm(1)}} to="/apropos">
             A propos
           </Link>
