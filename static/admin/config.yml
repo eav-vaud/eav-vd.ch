@@ -24,30 +24,50 @@ collections:
         label: "Page d'accueil"
         name: "index"
         fields:
-          - {label: "Template", name: "template", widget: "hidden", default: "page"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - {
+              label: "Template",
+              name: "template",
+              widget: "hidden",
+              default: "page",
+            }
+          - { label: "Body", name: "body", widget: "markdown" }
       - file: "src/pages/apropos.md"
-        label: "A propos"
+        label: "À propos"
         name: "apropos"
         fields:
-          - {label: "Template", name: "template", widget: "hidden", default: "page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - {
+              label: "Template",
+              name: "template",
+              widget: "hidden",
+              default: "page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
       - file: "src/pages/ressources.md"
         label: "Ressources"
         name: "ressources"
         fields:
-          - {label: "Template", name: "template", widget: "hidden", default: "page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - {
+              label: "Template",
+              name: "template",
+              widget: "hidden",
+              default: "page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
           - label: "Files"
             name: "files"
             widget: "list"
-            field: {label: "File", name: "file", widget: "file"}
+            field: { label: "File", name: "file", widget: "file" }
       - file: "src/pages/contact.md"
         label: "Contact"
         name: "contact"
         fields:
-          - {label: "Template", name: "template", widget: "hidden", default: "page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - {
+              label: "Template",
+              name: "template",
+              widget: "hidden",
+              default: "page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
