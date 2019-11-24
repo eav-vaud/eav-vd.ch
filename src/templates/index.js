@@ -5,15 +5,17 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
-class BlogIndex extends React.Component {
+class Index extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
+    const post = data.markdownRemark
     const posts = data.allMarkdownRemark.edges
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
+        <SEO title={siteTitle} />
+        <section dangerouslySetInnerHTML={{ __html: post.html }} />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
@@ -24,7 +26,7 @@ class BlogIndex extends React.Component {
                     marginBottom: rhythm(1 / 4),
                   }}
                 >
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                  <Link to={node.fields.slug}>
                     {title}
                   </Link>
                 </h3>
@@ -45,14 +47,17 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default Index
 
 export const pageQuery = graphql`
-  query {
+  query IndexPageBySlug($slug: String!) {
     site {
       siteMetadata {
         title
       }
+    }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }

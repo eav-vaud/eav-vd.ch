@@ -20,6 +20,12 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
+      - file: "src/pages/index.md"
+        label: "Page d'accueil"
+        name: "index"
+        fields:
+          - {label: "Template", name: "template", widget: "hidden", default: "page"}
+          - {label: "Body", name: "body", widget: "markdown"}
       - file: "src/pages/apropos.md"
         label: "A propos"
         name: "apropos"
