@@ -46,8 +46,8 @@ collections:
             name: "files"
             widget: "list"
             fields:
-              - { label: "File path", name: "path", widget: "file" }
               - { label: "File name", name: "name", widget: "string" }
+              - { label: "File path", name: "path", widget: "file" }
 
       - file: "src/pages/contact.md"
         label: "Contact"
