@@ -58,7 +58,7 @@ collections:
           - label: "Files"
             name: "files"
             widget: "list"
-            field:
+            fields:
               - label: "File"
                 name: "file"
                 widget: "object"
