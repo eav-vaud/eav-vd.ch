@@ -3,27 +3,14 @@ import { Link } from "gatsby"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    let header
+    const { title, children } = this.props
 
-    if (location.pathname === rootPath) {
-      header = (
-        <h1>
-          <Link to={`/`}>{title}</Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3>
-          <Link to={`/`}>{title}</Link>
-        </h3>
-      )
-    }
     return (
       <div>
         <header>
-          {header}
+          <h1>
+            <Link to={`/`}>{title}</Link>
+          </h1>
           <Link to="/actualites">Actualités</Link>
           <Link to="/apropos">À propos</Link>
           <Link to="/ressources">Ressources</Link>
