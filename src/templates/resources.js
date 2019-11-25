@@ -53,7 +53,10 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        files
+        files {
+          name
+          path
+        }
       }
     }
   }
