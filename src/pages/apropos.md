@@ -6,5 +6,5 @@ L’ EAV est une association qui regroupe des enseignants de l’ensemble des é
 
 Ses préoccupations sont d’ordre :
 
-* pédagogique : échange de pratiques, réflexion sur la branche sous forme de documents, organisation de journées pédagogiques, expositions de travaux d’élèves.
-* syndical : l’association est membre du syndicat SUD.
+* Pédagogique : échange de pratiques, réflexion sur la branche sous forme de documents, organisation de journées pédagogiques, expositions de travaux d’élèves.
+* Syndical : l’association est membre du syndicat SUD.
