@@ -1,7 +1,10 @@
 ---
 template: resources
 title: Ressources
-files: 
-  - test
+files:
+  - name: 'Test 1'
+    path: 'img/test.jpg/'
+  - name: 'Test 2'
+    path: 'img/test2.jpg/'
 ---
 La page Ressources
