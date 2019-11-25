@@ -29,7 +29,7 @@ class ResourcesTemplate extends React.Component {
             <ul>
               {post.frontmatter.files.map((file, index) => (
                 <li key={index}>
-                  <a href={file}>{file}</a>
+                  <a href={file.path}>{file.name}</a>
                 </li>
               ))}
             </ul>
