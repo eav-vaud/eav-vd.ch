@@ -2,9 +2,9 @@
 template: resources
 title: Ressources
 files:
-  - name: 'Test 1'
-    path: 'img/test.jpg/'
-  - name: 'Test 2'
-    path: 'img/test2.jpg/'
+  - name: Carte postale 2013
+    path: /img/carte-postale-2013.jpg
+  - name: Statuts des Enseignant-e-s des Arts Visuels du Canton de Vaud 2017
+    path: /img/eav-vaud-statuts-2017.pdf
 ---
 La page Ressources
