@@ -58,13 +58,13 @@ collections:
           - label: "Files"
             name: "files"
             widget: "list"
-            fields:
+            field:
               - label: "File"
                 name: "file"
                 widget: "object"
                 fields:
                   - { label: "File path", name: "path", widget: "file" }
-                  - { label: "File name" , name: "name", widget: "string" }
+                  - { label: "File name", name: "name", widget: "string" }
       - file: "src/pages/contact.md"
         label: "Contact"
         name: "contact"
