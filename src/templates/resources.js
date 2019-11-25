@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 
 class ResourcesTemplate extends React.Component {
   render() {
@@ -15,14 +14,7 @@ class ResourcesTemplate extends React.Component {
         <SEO title={post.frontmatter.title} />
         <article>
           <header>
-            <h1
-              style={{
-                marginTop: rhythm(1),
-                marginBottom: 0,
-              }}
-            >
-              {post.frontmatter.title}
-            </h1>
+            <h1>{post.frontmatter.title}</h1>
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
           <section>
