@@ -59,12 +59,12 @@ collections:
             name: "files"
             widget: "list"
             field:
-              - label: "File"
-                name: "file"
-                widget: "object"
+              - label: Author
+                name: author
+                widget: object
                 fields:
-                  - { label: "File path", name: "path", widget: "file" }
-                  - { label: "File name", name: "name", widget: "string" }
+                  - {label: Name, name: name, widget: string, default: "Emmet"}
+                  - {label: Avatar, name: avatar, widget: image, default: "/img/emmet.jpg"}
       - file: "src/pages/contact.md"
         label: "Contact"
         name: "contact"
