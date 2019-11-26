@@ -5,8 +5,8 @@ title: Contact
 ## [contact@eav-vd.ch](contact@eav-vd.ch)
 
 ## Comité
-[Daniel Bugmann](daniel.bugmann@eav-vd.ch)
-[Peter Schreuder](peter.schreuder@vd.educanet2.ch)
+[Daniel Bugmann](daniel.bugmann@eav-vd.ch)  
+[Peter Schreuder](peter.schreuder@vd.educanet2.ch)  
 [Eloi Meylan](eloi.meylan@gmail.com)
 
 ## Adresse postale:
