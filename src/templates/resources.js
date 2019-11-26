@@ -12,21 +12,19 @@ class ResourcesTemplate extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={post.frontmatter.title} />
-        <article>
-          <header>
-            <h1>{post.frontmatter.title}</h1>
-          </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <section>
-            <ul>
-              {post.frontmatter.files.map((file, index) => (
-                <li key={index}>
-                  <a href={file.path}>{file.name}</a>
-                </li>
-              ))}
-            </ul>
-          </section>
-        </article>
+        <header>
+          <h1>{post.frontmatter.title}</h1>
+        </header>
+        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <section>
+          <ul>
+            {post.frontmatter.files.map((file, index) => (
+              <li key={index}>
+                <a href={file.path}>{file.name}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
       </Layout>
     )
   }

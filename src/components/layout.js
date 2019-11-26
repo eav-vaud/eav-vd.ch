@@ -10,20 +10,31 @@ class Layout extends React.Component {
     return (
       <Styled.root
         sx={{
-          mx: `auto`,
+          display: `flex`,
+          flexDirection: `column`,
           maxWidth: 720,
+          minHeight: `100vh`,
+          mx: `auto`,
         }}
       >
         <header>
           <h1>
             <Link to={`/`}>{title}</Link>
           </h1>
-          <Link to="/actualites">Actualités</Link>
-          <Link to="/apropos">À propos</Link>
-          <Link to="/ressources">Ressources</Link>
-          <Link to="/contact">Contact</Link>
+          <Link sx={{ mr: 3, textDecoration: `none` }} to="/actualites">
+            Actualités
+          </Link>
+          <Link sx={{ mr: 3, textDecoration: `none` }} to="/apropos">
+            À propos
+          </Link>
+          <Link sx={{ mr: 3, textDecoration: `none` }} to="/ressources">
+            Ressources
+          </Link>
+          <Link sx={{ textDecoration: `none` }} to="/contact">
+            Contact
+          </Link>
         </header>
-        <main>{children}</main>
+        <main sx={{ flexGrow: 1 }}>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
