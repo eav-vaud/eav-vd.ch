@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { Styled, jsx } from "theme-ui"
 import React from "react"
 import { Link } from "gatsby"
 
@@ -6,7 +8,12 @@ class Layout extends React.Component {
     const { title, children } = this.props
 
     return (
-      <div>
+      <Styled.root
+        sx={{
+          mx: `auto`,
+          maxWidth: 720,
+        }}
+      >
         <header>
           <h1>
             <Link to={`/`}>{title}</Link>
@@ -22,7 +29,7 @@ class Layout extends React.Component {
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
-      </div>
+      </Styled.root>
     )
   }
 }
