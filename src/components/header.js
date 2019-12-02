@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql, StaticQuery } from "gatsby"
 import GatsbyLink from "gatsby-link"
 import { Link, Box, Stack } from "@chakra-ui/core"
 
@@ -17,20 +18,30 @@ class Header extends React.Component {
         <Link as={GatsbyLink} to={`/`}>
           {title}
         </Link>
-        <Stack as="nav" isInline spacing={4} ml="8">
-          <Link as={GatsbyLink} to="/actualites">
-            Actualités
-          </Link>
-          <Link as={GatsbyLink} to="/apropos">
-            À propos
-          </Link>
-          <Link as={GatsbyLink} to="/ressources">
-            Ressources
-          </Link>
-          <Link as={GatsbyLink} to="/contact">
-            Contact
-          </Link>
-        </Stack>
+        <StaticQuery
+          query={graphql`
+            query SiteTitleQuery {
+              site {
+                siteMetadata {
+                  title
+                  menuLinks {
+                    name
+                    link
+                  }
+                }
+              }
+            }
+          `}
+          render={data => (
+            <Stack as="nav" isInline spacing={4} ml="8">
+              {data.site.siteMetadata.menuLinks.map(link => (
+                <Link key={link.name} as={GatsbyLink} to={link.link}>
+                  {link.name}
+                </Link>
+              ))}
+            </Stack>
+          )}
+        />
       </Box>
     )
   }

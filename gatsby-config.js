@@ -4,6 +4,24 @@ module.exports = {
     author: `EAV Vaud`,
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    menuLinks: [
+      {
+        name: `Actualités`,
+        link: `/actualites`,
+      },
+      {
+        name: `A propos`,
+        link: `/apropos`,
+      },
+      {
+        name: `Ressources`,
+        link: `/ressources`,
+      },
+      {
+        name: `contact`,
+        link: `/contact`,
+      },
+    ],
   },
   plugins: [
     {
@@ -14,10 +32,10 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
-        name: "pages",
+        name: `pages`,
       },
     },
     {
