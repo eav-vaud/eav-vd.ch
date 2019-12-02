@@ -1,6 +1,5 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
-import GatsbyLink from "gatsby-link"
+import { graphql, Link as GatsbyLink, StaticQuery } from "gatsby"
 import { Link, Box, Stack } from "@chakra-ui/core"
 
 const Header = ({ title }) => (
