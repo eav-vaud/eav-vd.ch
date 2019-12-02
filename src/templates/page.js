@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { Box, Heading } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -12,9 +13,9 @@ class PageTemplate extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={post.frontmatter.title} />
-        <header>
-          <h1>{post.frontmatter.title}</h1>
-        </header>
+        <Box as="header" mb="6">
+          <Heading as="h1">{post.frontmatter.title}</Heading>
+        </Box>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
       </Layout>
     )

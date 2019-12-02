@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { Heading } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -13,7 +14,7 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Actualités" />
-        <h1>Actualités</h1>
+        <Heading as="h1">Actualités</Heading>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (

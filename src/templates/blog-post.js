@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { Heading } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -17,7 +18,9 @@ class BlogPostTemplate extends React.Component {
         />
         <article>
           <header>
-            <h1>{post.frontmatter.title}</h1>
+            <Heading as="h1" mb="4">
+              {post.frontmatter.title}
+            </Heading>
             <p>{post.frontmatter.date}</p>
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />

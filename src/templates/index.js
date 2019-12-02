@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { Box, Heading, Stack } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -15,26 +16,28 @@ class Index extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={siteTitle} />
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <article key={node.fields.slug}>
-              <header>
-                <h3>
-                  <Link to={node.fields.slug}>{title}</Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-              </header>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
-            </article>
-          )
-        })}
+        <Stack spacing={8}>
+          {posts.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug
+            return (
+              <Box as="article" key={node.fields.slug}>
+                <header>
+                  <Heading as="h3">
+                    <Link to={node.fields.slug}>{title}</Link>
+                  </Heading>
+                  <small>{node.frontmatter.date}</small>
+                </header>
+                <section>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
+                </section>
+              </Box>
+            )
+          })}
+        </Stack>
       </Layout>
     )
   }
