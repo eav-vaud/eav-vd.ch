@@ -1,6 +1,6 @@
 import React from "react"
 import { ThemeProvider } from "@chakra-ui/core"
-import eavTheme from "../utils/theme.js"
+import eavTheme from "../utils/theme"
 import { Box, Flex } from "@chakra-ui/core"
 
 import Header from "./header.js"

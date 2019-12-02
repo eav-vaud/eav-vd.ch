@@ -1,9 +1,10 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { Heading } from "@chakra-ui/core"
+import { graphql } from "gatsby"
+import { Stack, Heading } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import BlogPostTeaser from "../components/blog-post-teaser"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -13,26 +14,21 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Actualités" />
       <Heading as="h1">Actualités</Heading>
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3>
-                <Link to={node.fields.slug}>{title}</Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        )
-      })}
+      <Stack spacing={8}>
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug
+          const description = node.frontmatter.description || node.excerpt
+          return (
+            <BlogPostTeaser
+              key={node.fields.slug}
+              slug={node.fields.slug}
+              title={title}
+              date={node.frontmatter.date}
+              description={description}
+            />
+          )
+        })}
+      </Stack>
     </Layout>
   )
 }

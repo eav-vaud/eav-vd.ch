@@ -1,9 +1,10 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { Box, Heading, Stack } from "@chakra-ui/core"
+import { graphql } from "gatsby"
+import { Stack } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import BlogPostTeaser from "../components/blog-post-teaser"
 
 const IndexTemplate = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -17,22 +18,15 @@ const IndexTemplate = ({ data, location }) => {
       <Stack spacing={8}>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
+          const description = node.frontmatter.description || node.excerpt
           return (
-            <Box as="article" key={node.fields.slug}>
-              <header>
-                <Heading as="h3">
-                  <Link to={node.fields.slug}>{title}</Link>
-                </Heading>
-                <small>{node.frontmatter.date}</small>
-              </header>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
-            </Box>
+            <BlogPostTeaser
+              key={node.fields.slug}
+              slug={node.fields.slug}
+              title={title}
+              date={node.frontmatter.date}
+              description={description}
+            />
           )
         })}
       </Stack>
