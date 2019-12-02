@@ -15,7 +15,7 @@ class Header extends React.Component {
         justifyContent="space-between"
         alignItems="baseline"
       >
-        <Link as={GatsbyLink} to={`/`}>
+        <Link as={GatsbyLink} to={`/`} color="brand" fontWeight="800">
           {title}
         </Link>
         <StaticQuery
