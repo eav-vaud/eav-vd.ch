@@ -4,6 +4,7 @@ import { Box, Heading } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import RichText from "../components/rich-text"
 
 const PageTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -15,7 +16,9 @@ const PageTemplate = ({ data, location }) => {
       <Box as="header" mb="6">
         <Heading as="h1">{post.frontmatter.title}</Heading>
       </Box>
-      <section dangerouslySetInnerHTML={{ __html: post.html }} />
+      <RichText>
+        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+      </RichText>
     </Layout>
   )
 }

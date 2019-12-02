@@ -4,6 +4,7 @@ import { Heading } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import RichText from "../components/rich-text"
 
 const ResourcesTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -13,9 +14,11 @@ const ResourcesTemplate = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title={post.frontmatter.title} />
       <header>
-        <Heading as="h1">{post.frontmatter.title}</Heading>
+        <Heading as="h1" mb="4">{post.frontmatter.title}</Heading>
       </header>
-      <section dangerouslySetInnerHTML={{ __html: post.html }} />
+      <RichText>
+        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+      </RichText>
       <section>
         <ul>
           {post.frontmatter.files.map((file, index) => (

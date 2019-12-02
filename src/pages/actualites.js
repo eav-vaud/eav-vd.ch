@@ -13,7 +13,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Actualités" />
-      <Heading as="h1">Actualités</Heading>
+      <Heading as="h1" mb="4">Actualités</Heading>
       <Stack spacing={8}>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug

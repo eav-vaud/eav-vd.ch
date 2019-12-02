@@ -4,6 +4,7 @@ import { Heading } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import RichText from "../components/rich-text"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -15,7 +16,7 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <article>
+      <RichText>
         <header>
           <Heading as="h1" mb="4">
             {post.frontmatter.title}
@@ -23,7 +24,7 @@ const BlogPostTemplate = ({ data, location }) => {
           <p>{post.frontmatter.date}</p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
-      </article>
+      </RichText>
     </Layout>
   )
 }
