@@ -5,21 +5,19 @@ import { Box, Heading } from "@chakra-ui/core"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-class PageTemplate extends React.Component {
-  render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
+const PageTemplate = ({ data, location }) => {
+  const post = data.markdownRemark
+  const siteTitle = data.site.siteMetadata.title
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title={post.frontmatter.title} />
-        <Box as="header" mb="6">
-          <Heading as="h1">{post.frontmatter.title}</Heading>
-        </Box>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
-      </Layout>
-    )
-  }
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO title={post.frontmatter.title} />
+      <Box as="header" mb="6">
+        <Heading as="h1">{post.frontmatter.title}</Heading>
+      </Box>
+      <section dangerouslySetInnerHTML={{ __html: post.html }} />
+    </Layout>
+  )
 }
 
 export default PageTemplate
