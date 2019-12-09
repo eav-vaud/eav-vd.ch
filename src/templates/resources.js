@@ -16,9 +16,7 @@ const ResourcesTemplate = ({ data, location }) => {
       <header>
         <Heading as="h1" mb="4">{post.frontmatter.title}</Heading>
       </header>
-      <RichText>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
-      </RichText>
+      <RichText content={post.html} />
       <section>
         <ul>
           {post.frontmatter.files.map((file, index) => (

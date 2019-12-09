@@ -16,9 +16,7 @@ const PageTemplate = ({ data, location }) => {
       <Box as="header" mb="6">
         <Heading as="h1">{post.frontmatter.title}</Heading>
       </Box>
-      <RichText>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
-      </RichText>
+      <RichText content={post.html} />
     </Layout>
   )
 }

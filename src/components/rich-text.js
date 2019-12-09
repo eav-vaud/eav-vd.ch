@@ -2,21 +2,42 @@
 import { jsx } from "@emotion/core"
 import { useTheme } from "emotion-theming"
 
-const RichText = ({ children }) => {
+const RichText = ({ content }) => {
   const theme = useTheme()
 
   return (
-    <article
+    <section
       css={{
         fontSize: theme.fontSizes.xl,
+        '> * + *': {
+          marginTop: `1.5em`,
+        },
         a: {
           color: theme.colors.brand,
-          textDecoration: "underline",
+          textDecoration: `underline`,
+        },
+        h1: {
+          fontSize: theme.fontSizes[`4xl`],
+          fontWeight: theme.fontWeights.bold,
+          lineHeight: theme.lineHeights.shorter,
+        },
+        h2: {
+          fontSize: theme.fontSizes[`3xl`],
+          fontWeight: theme.fontWeights.bold,
+        },
+        h3: {
+          fontSize: theme.fontSizes[`2xl`],
+          fontWeight: theme.fontWeights.bold,
+        },
+        h4: {
+          fontWeight: theme.fontWeights.bold,
+        },
+        ul: {
+          paddingLeft: `1em`,
         },
       }}
-    >
-      {children}
-    </article>
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
   )
 }
 

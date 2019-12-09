@@ -4,6 +4,7 @@ import { Stack } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import RichText from "../components/rich-text"
 import BlogPostTeaser from "../components/blog-post-teaser"
 
 const IndexTemplate = ({ data, location }) => {
@@ -14,7 +15,7 @@ const IndexTemplate = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={siteTitle} />
-      <section dangerouslySetInnerHTML={{ __html: post.html }} />
+      <RichText content={post.html} />
       <Stack spacing={8}>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug

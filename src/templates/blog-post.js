@@ -16,15 +16,15 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <RichText>
+      <article>
         <header>
           <Heading as="h1" mb="4">
             {post.frontmatter.title}
           </Heading>
           <p>{post.frontmatter.date}</p>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
-      </RichText>
+        <RichText content={post.html} />
+      </article>
     </Layout>
   )
 }
