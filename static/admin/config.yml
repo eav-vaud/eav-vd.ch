@@ -25,6 +25,7 @@ collections:
         name: "index"
         fields:
           - { label: "Template", name: "template", widget: "hidden", default: "page" }
+          - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
 
       - file: "src/pages/apropos.md"
