@@ -1,9 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Heading } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import PageHeader from "../components/page-header"
 import RichText from "../components/rich-text"
 
 const PageTemplate = ({ data, location }) => {
@@ -13,9 +13,7 @@ const PageTemplate = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={post.frontmatter.title} />
-      <Box as="header" mb="6">
-        <Heading as="h1">{post.frontmatter.title}</Heading>
-      </Box>
+      <PageHeader title={post.frontmatter.title} />
       <RichText content={post.html} />
     </Layout>
   )

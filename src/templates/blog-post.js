@@ -1,9 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Heading } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import PageHeader from "../components/page-header"
 import RichText from "../components/rich-text"
 
 const BlogPostTemplate = ({ data, location }) => {
@@ -17,12 +17,7 @@ const BlogPostTemplate = ({ data, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <article>
-        <header>
-          <Heading as="h1" mb="4">
-            {post.frontmatter.title}
-          </Heading>
-          <p>{post.frontmatter.date}</p>
-        </header>
+        <PageHeader title={post.frontmatter.title} date={post.frontmatter.date} />
         <RichText content={post.html} />
       </article>
     </Layout>
