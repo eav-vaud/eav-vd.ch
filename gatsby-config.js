@@ -18,7 +18,7 @@ module.exports = {
         link: `/ressources`,
       },
       {
-        name: `contact`,
+        name: `Contact`,
         link: `/contact`,
       },
     ],
