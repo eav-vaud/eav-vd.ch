@@ -5,6 +5,7 @@ import { Stack } from "@chakra-ui/core"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RichText from "../components/rich-text"
+import PageHeader from "../components/page-header"
 import BlogPostTeaser from "../components/blog-post-teaser"
 
 const IndexTemplate = ({ data, location }) => {
@@ -15,8 +16,9 @@ const IndexTemplate = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={siteTitle} />
+      <PageHeader title={post.frontmatter.title} />
       <RichText content={post.html} />
-      <Stack spacing={8}>
+      <Stack as="section" spacing={8}>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           const description = node.frontmatter.description || node.excerpt
@@ -46,6 +48,9 @@ export const pageQuery = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      frontmatter {
+        title
+      }
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
