@@ -2,19 +2,19 @@
 template: page
 title: Contact
 ---
-## [contact@eav-vd.ch](mailto:contact@eav-vd.ch)
+[contact@eav-vd.ch](mailto:contact@eav-vd.ch)
 
-## Comité
+**Comité**  
 [Daniel Bugmann](mailto:daniel.bugmann@eav-vd.ch)  
 [Peter Schreuder](mailto:peter.schreuder@vd.educanet2.ch)  
 [Eloi Meylan](mailto:eloi.meylan@gmail.com)
 
-## Adresse postale:
+**Adresse postale**  
 EAV\
 Case postale 559\
 1001 Lausanne
 
-## Coordonnées bancaires
+**Coordonnées bancaires**  
 Association des Enseignant-e-s\
 d'Arts Visuels\
 1001 Lausanne\
