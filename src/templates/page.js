@@ -14,7 +14,7 @@ const PageTemplate = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title={post.frontmatter.title} />
       <PageHeader title={post.frontmatter.title} />
-      <RichText content={post.html} />
+      <RichText content={post.html} mt="8" />
     </Layout>
   )
 }

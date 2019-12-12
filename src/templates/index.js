@@ -17,8 +17,8 @@ const IndexTemplate = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title={siteTitle} />
       <PageHeader title={post.frontmatter.title} />
-      <RichText content={post.html} />
-      <Stack as="section" spacing={8}>
+      <RichText content={post.html} mt="4" />
+      <Stack spacing={12} mt="8">
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           const description = node.frontmatter.description || node.excerpt

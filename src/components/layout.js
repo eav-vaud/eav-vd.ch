@@ -8,11 +8,9 @@ import Header from "./header.js"
 
 const Layout = ({ title, children }) => (
   <ThemeProvider theme={eavTheme}>
-    <Box maxW="720px" px="4" mx="auto">
+    <Box maxW="720px" px="4" pb="48" mx="auto">
       <Header title={title} />
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
     </Box>
   </ThemeProvider>
 )

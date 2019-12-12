@@ -1,9 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Stack, Heading } from "@chakra-ui/core"
+import { Stack } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import PageHeader from "../components/page-header"
 import BlogPostTeaser from "../components/blog-post-teaser"
 
 const BlogIndex = ({ data, location }) => {
@@ -13,8 +14,8 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Actualités" />
-      <Heading as="h1" mb="4">Actualités</Heading>
-      <Stack spacing={8}>
+      <PageHeader title="Actualités" />
+      <Stack spacing={16} mt="8">
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           const description = node.frontmatter.description || node.excerpt

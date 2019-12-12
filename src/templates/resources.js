@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { Box } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -14,8 +15,8 @@ const ResourcesTemplate = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title={post.frontmatter.title} />
       <PageHeader title={post.frontmatter.title} />
-      <RichText content={post.html} />
-      <section>
+      <RichText content={post.html} mt="8" />
+      <Box as="section" mt="8">
         <ul>
           {post.frontmatter.files.map((file, index) => (
             <li key={index}>
@@ -23,7 +24,7 @@ const ResourcesTemplate = ({ data, location }) => {
             </li>
           ))}
         </ul>
-      </section>
+      </Box>
     </Layout>
   )
 }

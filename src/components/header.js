@@ -7,7 +7,8 @@ const Header = ({ title }) => (
   <Box
     as="header"
     display={{ sm: "flex" }}
-    py="6"
+    pt="8"
+    pb="16"
     justifyContent="space-between"
     alignItems="baseline"
   >

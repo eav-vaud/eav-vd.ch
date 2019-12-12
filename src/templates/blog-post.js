@@ -19,9 +19,9 @@ const BlogPostTemplate = ({ data, location }) => {
       <article>
         <PageHeader
           title={post.frontmatter.title}
-          date={post.frontmatter.date}
+          subtitle={post.frontmatter.date}
         />
-        <RichText content={post.html} />
+        <RichText content={post.html} mt="8" />
       </article>
     </Layout>
   )

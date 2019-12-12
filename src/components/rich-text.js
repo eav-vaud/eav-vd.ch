@@ -2,15 +2,16 @@
 import { jsx } from "@emotion/core"
 import PropTypes from "prop-types"
 import { useTheme } from "emotion-theming"
+import { Box } from "@chakra-ui/core"
 
-const RichText = ({ content }) => {
+const RichText = ({ content, ...props }) => {
   const theme = useTheme()
 
   return (
-    <section
+    <Box
       css={{
         fontSize: theme.fontSizes.xl,
-        '> * + *': {
+        "> * + *": {
           marginTop: `1.5em`,
         },
         a: {
@@ -38,6 +39,7 @@ const RichText = ({ content }) => {
         },
       }}
       dangerouslySetInnerHTML={{ __html: content }}
+      {...props}
     />
   )
 }
