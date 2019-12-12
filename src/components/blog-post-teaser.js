@@ -1,18 +1,33 @@
 import React from "react"
-import { Link } from "gatsby"
-import { Box, Heading } from "@chakra-ui/core"
+import { Link as GatsbyLink } from "gatsby"
+import { Box, Heading, Text, Link } from "@chakra-ui/core"
 
 const BlogPostTeaser = ({ slug, title, date, description, ...props }) => (
   <Box as="article" {...props}>
-    <header>
-      <Heading as="h3">
-        <Link to={slug}>{title}</Link>
+    <Box as="header">
+      <Heading as="h3" fontSize="2xl">
+        <Link as={GatsbyLink} to={slug}>
+          {title}
+        </Link>
       </Heading>
-      <small>{date}</small>
-    </header>
-    <section>
-      <p dangerouslySetInnerHTML={{ __html: description }} />
-    </section>
+      <Text fontSize="md">{date}</Text>
+    </Box>
+    <Box as="section" mt="3">
+      <Text
+        fontSize="lg"
+        mb="2"
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
+      <Link
+        as={GatsbyLink}
+        to={slug}
+        fontSize="lg"
+        fontWeight="semibold"
+        color="brand"
+      >
+        En lire plus...
+      </Link>
+    </Box>
   </Box>
 )
 
