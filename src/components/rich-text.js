@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core"
+import PropTypes from "prop-types"
 import { useTheme } from "emotion-theming"
 
 const RichText = ({ content }) => {
@@ -39,6 +40,10 @@ const RichText = ({ content }) => {
       dangerouslySetInnerHTML={{ __html: content }}
     />
   )
+}
+
+RichText.propTypes = {
+  content: PropTypes.string.isRequired,
 }
 
 export default RichText

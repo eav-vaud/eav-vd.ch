@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Link as GatsbyLink } from "gatsby"
 import { Box, Heading, Text, Link } from "@chakra-ui/core"
 
@@ -30,5 +31,12 @@ const BlogPostTeaser = ({ slug, title, date, description, ...props }) => (
     </Box>
   </Box>
 )
+
+BlogPostTeaser.propTypes = {
+  slug: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+}
 
 export default BlogPostTeaser

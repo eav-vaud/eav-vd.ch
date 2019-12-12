@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { ThemeProvider } from "@chakra-ui/core"
 import eavTheme from "../utils/theme"
 import { Box } from "@chakra-ui/core"
@@ -15,5 +16,10 @@ const Layout = ({ title, children }) => (
     </Box>
   </ThemeProvider>
 )
+
+Layout.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+}
 
 export default Layout

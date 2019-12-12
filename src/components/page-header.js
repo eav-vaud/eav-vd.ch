@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Box, Heading, Text } from "@chakra-ui/core"
 
 const PageHeader = ({ title, date }) => (
@@ -11,5 +12,10 @@ const PageHeader = ({ title, date }) => (
     )}
   </Box>
 )
+
+PageHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string,
+}
 
 export default PageHeader

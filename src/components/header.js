@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { graphql, Link as GatsbyLink, StaticQuery } from "gatsby"
 import { Link, Box, Stack } from "@chakra-ui/core"
 
@@ -39,5 +40,9 @@ const Header = ({ title }) => (
     />
   </Box>
 )
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+}
 
 export default Header
