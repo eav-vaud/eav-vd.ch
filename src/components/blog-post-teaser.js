@@ -14,11 +14,13 @@ const BlogPostTeaser = ({ slug, title, date, description, ...props }) => (
       <Text fontSize="md">{date}</Text>
     </Box>
     <Box as="section" mt="3">
-      <Text
-        fontSize="lg"
-        mb="2"
-        dangerouslySetInnerHTML={{ __html: description }}
-      />
+      {description && (
+        <Text
+          fontSize="lg"
+          mb="2"
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
+      )}
       <Link
         as={GatsbyLink}
         to={slug}
@@ -36,7 +38,7 @@ BlogPostTeaser.propTypes = {
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
 }
 
 export default BlogPostTeaser
