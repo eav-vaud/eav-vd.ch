@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box } from "@chakra-ui/core"
+import { Box, Link, List, ListItem, Icon } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -17,13 +17,29 @@ const ResourcesTemplate = ({ data, location }) => {
       <PageHeader title={post.frontmatter.title} />
       <RichText content={post.html} mt="8" />
       <Box as="section" mt="8">
-        <ul>
+        <List spacing={8}>
           {post.frontmatter.files.map((file, index) => (
-            <li key={index}>
-              <a href={file.path}>{file.name}</a>
-            </li>
+            <ListItem key={index}>
+              <Link
+                href={file.path}
+                display="inline-flex"
+                alignItems="baseline"
+                fontSize="2xl"
+                color="brand"
+              >
+                <Icon
+                  name="attachment"
+                  flexShrink="0"
+                  position="relative"
+                  top="1"
+                  mr="3"
+                  color="gray.300"
+                />
+                {file.name}
+              </Link>
+            </ListItem>
           ))}
-        </ul>
+        </List>
       </Box>
     </Layout>
   )
