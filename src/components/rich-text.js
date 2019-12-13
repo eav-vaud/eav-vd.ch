@@ -37,6 +37,9 @@ const RichText = ({ content, ...props }) => {
         ul: {
           paddingLeft: `1em`,
         },
+        ol: {
+          paddingLeft: `1em`,
+        }
       }}
       dangerouslySetInnerHTML={{ __html: content }}
       {...props}

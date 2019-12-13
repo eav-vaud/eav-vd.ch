@@ -22,7 +22,7 @@ const IndexTemplate = ({ data, location }) => {
         <Link
           as={GatsbyLink}
           to="/apropos"
-          fontSize="lg"
+          fontSize="xl"
           fontWeight="semibold"
           color="brand"
         >
