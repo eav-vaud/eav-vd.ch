@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Heading, Link, List, ListItem, Icon } from "@chakra-ui/core"
+import { Box, Heading, Text, Link, List, ListItem, Icon } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -19,28 +19,59 @@ const ResourcesTemplate = ({ data, location }) => {
       {post.frontmatter.files && (
         <Box as="section" mt="8">
           <Heading as="h2" fontSize="2xl">
-            Fichiers
+            Documents
           </Heading>
-          <List spacing={4} mt="4">
+          <List spacing={4} display="flex" flexDirection="column" mt="4">
             {post.frontmatter.files.map((file, index) => (
-              <ListItem key={index}>
-                <Link
-                  href={file.path}
-                  display="inline-flex"
-                  alignItems="baseline"
-                  fontSize="xl"
-                  color="brand"
-                >
-                  <Icon
-                    name="attachment"
-                    flexShrink="0"
-                    position="relative"
-                    top="1"
-                    mr="3"
-                    color="gray.300"
-                  />
+              <ListItem
+                key={index}
+                display="inline-flex"
+                fontSize="xl"
+                alignItems="baseline"
+              >
+                <Icon
+                  name="attachment"
+                  flexShrink="0"
+                  position="relative"
+                  top="1"
+                  mr="3"
+                  color="gray.300"
+                />
+                <Link href={file.path} color="brand">
                   {file.name}
                 </Link>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      )}
+      {post.frontmatter.links && (
+        <Box as="section" mt="8">
+          <Heading as="h2" fontSize="2xl">
+            Liens
+          </Heading>
+          <List spacing={6} display="flex" flexDirection="column" mt="4">
+            {post.frontmatter.links.map((link, index) => (
+              <ListItem
+                key={index}
+                display="inline-flex"
+                fontSize="xl"
+                alignItems="baseline"
+              >
+                <Icon
+                  name="external-link"
+                  flexShrink="0"
+                  position="relative"
+                  top="1"
+                  mr="3"
+                  color="gray.300"
+                />
+                <div>
+                  <Link href={link.url} color="brand">
+                    {link.name}
+                  </Link>
+                  <Text fontSize="lg">{link.description}</Text>
+                </div>
               </ListItem>
             ))}
           </List>
@@ -66,6 +97,11 @@ export const pageQuery = graphql`
         files {
           name
           path
+        }
+        links {
+          name
+          url
+          description
         }
       }
     }
