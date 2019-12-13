@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Link, List, ListItem, Icon } from "@chakra-ui/core"
+import { Box, Heading, Link, List, ListItem, Icon } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -16,31 +16,36 @@ const ResourcesTemplate = ({ data, location }) => {
       <SEO title={post.frontmatter.title} />
       <PageHeader title={post.frontmatter.title} />
       {post.html && <RichText content={post.html} mt="8" />}
-      <Box as="section" mt="8">
-        <List spacing={8}>
-          {post.frontmatter.files.map((file, index) => (
-            <ListItem key={index}>
-              <Link
-                href={file.path}
-                display="inline-flex"
-                alignItems="baseline"
-                fontSize="2xl"
-                color="brand"
-              >
-                <Icon
-                  name="attachment"
-                  flexShrink="0"
-                  position="relative"
-                  top="1"
-                  mr="3"
-                  color="gray.300"
-                />
-                {file.name}
-              </Link>
-            </ListItem>
-          ))}
-        </List>
-      </Box>
+      {post.frontmatter.files && (
+        <Box as="section" mt="8">
+          <Heading as="h2" fontSize="2xl">
+            Fichiers
+          </Heading>
+          <List spacing={4} mt="4">
+            {post.frontmatter.files.map((file, index) => (
+              <ListItem key={index}>
+                <Link
+                  href={file.path}
+                  display="inline-flex"
+                  alignItems="baseline"
+                  fontSize="xl"
+                  color="brand"
+                >
+                  <Icon
+                    name="attachment"
+                    flexShrink="0"
+                    position="relative"
+                    top="1"
+                    mr="3"
+                    color="gray.300"
+                  />
+                  {file.name}
+                </Link>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      )}
     </Layout>
   )
 }
