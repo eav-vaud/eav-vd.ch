@@ -11,6 +11,7 @@ const Header = ({ title }) => (
     pb="16"
     justifyContent="space-between"
     alignItems="baseline"
+    fontSize="xl"
   >
     <Link as={GatsbyLink} to={`/`} color="brand" fontWeight="800">
       {title}
@@ -32,7 +33,12 @@ const Header = ({ title }) => (
       render={data => (
         <Stack as="nav" isInline spacing={4} ml="8">
           {data.site.siteMetadata.menuLinks.map(link => (
-            <Link key={link.name} as={GatsbyLink} to={link.link}>
+            <Link
+              as={GatsbyLink}
+              key={link.name}
+              to={link.link}
+              fontWeight="bold"
+            >
               {link.name}
             </Link>
           ))}
