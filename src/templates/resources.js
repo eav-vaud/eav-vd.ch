@@ -70,7 +70,9 @@ const ResourcesTemplate = ({ data, location }) => {
                   <Link href={link.url} color="brand">
                     {link.name}
                   </Link>
-                  <Text fontSize="lg">{link.description}</Text>
+                  {link.description && (
+                    <Text fontSize="lg">{link.description}</Text>
+                  )}
                 </div>
               </ListItem>
             ))}

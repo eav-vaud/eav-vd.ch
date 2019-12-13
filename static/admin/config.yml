@@ -56,7 +56,7 @@ collections:
             fields:
               - { label: "Link name", name: "name", widget: "string" }
               - { label: "Link url", name: "url", widget: "string" }
-              - { label: "Link description", name: "description", widget: "string" }
+              - { label: "Link description", name: "description", widget: "string", required: false }
 
       - file: "src/pages/contact.md"
         label: "Contact"
