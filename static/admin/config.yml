@@ -50,6 +50,12 @@ collections:
             fields:
               - { label: "File name", name: "name", widget: "string" }
               - { label: "File path", name: "path", widget: "file" }
+          - label: "Links"
+            name: "links"
+            widget: "list"
+            fields:
+              - { label: "Link name", name: "name", widget: "string" }
+              - { label: "Link url", name: "url", widget: "string" }
 
       - file: "src/pages/contact.md"
         label: "Contact"
