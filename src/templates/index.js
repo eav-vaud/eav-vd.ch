@@ -1,6 +1,6 @@
 import React from "react"
-import { graphql } from "gatsby"
-import { Stack } from "@chakra-ui/core"
+import { graphql, Link as GatsbyLink } from "gatsby"
+import { Box, Stack, Link } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -17,8 +17,19 @@ const IndexTemplate = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title={siteTitle} />
       <PageHeader title={post.frontmatter.title} />
-      <RichText content={post.html} mt="4" />
-      <Stack spacing={12} mt="8">
+      <Box as="section">
+        <RichText content={post.html} mt="4" mb="2" />
+        <Link
+          as={GatsbyLink}
+          to="/apropos"
+          fontSize="lg"
+          fontWeight="semibold"
+          color="brand"
+        >
+          En savoir plus...
+        </Link>
+      </Box>
+      <Stack spacing={12} mt="12">
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           const description = node.frontmatter.description || node.excerpt
