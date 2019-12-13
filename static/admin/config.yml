@@ -43,7 +43,7 @@ collections:
         fields:
           - { label: "Template", name: "template", widget: "hidden", default: "page" }
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Body", name: "body", widget: "markdown", required: false }
           - label: "Files"
             name: "files"
             widget: "list"

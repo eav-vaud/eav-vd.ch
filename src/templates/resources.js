@@ -15,7 +15,7 @@ const ResourcesTemplate = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title={post.frontmatter.title} />
       <PageHeader title={post.frontmatter.title} />
-      <RichText content={post.html} mt="8" />
+      {post.html && <RichText content={post.html} mt="8" />}
       <Box as="section" mt="8">
         <List spacing={8}>
           {post.frontmatter.files.map((file, index) => (
