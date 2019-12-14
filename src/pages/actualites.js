@@ -7,12 +7,12 @@ import SEO from "../components/seo"
 import PageHeader from "../components/page-header"
 import BlogPostTeaser from "../components/blog-post-teaser"
 
-const BlogIndex = ({ data, location }) => {
+const BlogIndex = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title="Actualités" />
       <PageHeader title="Actualités" />
       <Stack spacing={16} mt="8">

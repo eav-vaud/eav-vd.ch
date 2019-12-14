@@ -8,13 +8,13 @@ import RichText from "../components/rich-text"
 import PageHeader from "../components/page-header"
 import BlogPostTeaser from "../components/blog-post-teaser"
 
-const IndexTemplate = ({ data, location }) => {
+const IndexTemplate = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const post = data.markdownRemark
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title={siteTitle} />
       <PageHeader title={post.frontmatter.title} />
       <Box as="section">

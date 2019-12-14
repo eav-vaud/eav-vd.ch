@@ -7,12 +7,12 @@ import SEO from "../components/seo"
 import PageHeader from "../components/page-header"
 import RichText from "../components/rich-text"
 
-const ResourcesTemplate = ({ data, location }) => {
+const ResourcesTemplate = ({ data }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title={post.frontmatter.title} />
       <PageHeader title={post.frontmatter.title} />
       {post.html && <RichText content={post.html} mt="8" />}
