@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import PageHeader from "../components/page-header"
 import RichText from "../components/rich-text"
 
-const BlogPostTemplate = ({ title, description, date, content }) => (
+export const BlogPostTemplate = ({ title, description, date, content }) => (
   <Layout title="EAV-Vaud">
     <SEO title={title} description={description} />
     <article>
