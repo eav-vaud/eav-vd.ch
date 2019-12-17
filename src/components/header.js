@@ -6,14 +6,13 @@ import { Link, Box, Stack } from "@chakra-ui/core"
 const Header = ({ title }) => (
   <Box
     as="header"
-    display={{ sm: "flex" }}
+    display={{ md: "flex" }}
     pt="8"
-    pb="16"
+    pb={[8, 16]}
     justifyContent="space-between"
     alignItems="baseline"
-    fontSize="xl"
   >
-    <Link as={GatsbyLink} to={`/`} color="brand" fontWeight="800">
+    <Link as={GatsbyLink} to={`/`} color="brand" fontSize="xl" fontWeight="800">
       {title}
     </Link>
     <StaticQuery
@@ -31,12 +30,20 @@ const Header = ({ title }) => (
         }
       `}
       render={data => (
-        <Stack as="nav" isInline spacing={4} ml="8">
+        <Stack
+          as="nav"
+          isInline
+          spacing={4}
+          flexWrap="wrap"
+          mt={{ base: 2, md: 0 }}
+          ml={{ md: 8 }}
+        >
           {data.site.siteMetadata.menuLinks.map(link => (
             <Link
               as={GatsbyLink}
               key={link.name}
               to={link.link}
+              fontSize="xl"
               fontWeight="bold"
             >
               {link.name}
