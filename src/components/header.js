@@ -13,7 +13,7 @@ const NavLink = ({ children, ...props }) => (
   </GatsbyLink>
 )
 
-const Header = ({ title }) => {
+const Header = ({ title, ...props }) => {
   return (
     <Box
       as="header"
@@ -22,6 +22,7 @@ const Header = ({ title }) => {
       pb={[8, 16]}
       justifyContent="space-between"
       alignItems="baseline"
+      {...props}
     >
       <Link
         as={GatsbyLink}
