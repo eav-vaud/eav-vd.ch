@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import { useTheme } from "emotion-theming"
 import { Box } from "@chakra-ui/core"
 
-const RichText = ({ content, ...props }) => {
+const RichText = ({ children, ...props }) => {
   const theme = useTheme()
 
   return (
@@ -41,9 +41,10 @@ const RichText = ({ content, ...props }) => {
           paddingLeft: `1em`,
         }
       }}
-      dangerouslySetInnerHTML={{ __html: content }}
       {...props}
-    />
+    >
+      {children}
+    </Box>
   )
 }
 
