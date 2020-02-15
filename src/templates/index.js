@@ -1,5 +1,7 @@
 import React from "react"
 import { graphql, Link as GatsbyLink } from "gatsby"
+import { RichText as PrismicText } from "prismic-reactjs"
+import { linkResolver } from '../utils/link-resolver'
 import { Box, Stack, Link } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
@@ -11,7 +13,7 @@ import BlogPostTeaser from "../components/blog-post-teaser"
 const IndexTemplate = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const post = data.markdownRemark
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.prismic.allBlog_posts.edges
 
   return (
     <Layout title={siteTitle}>
@@ -30,19 +32,14 @@ const IndexTemplate = ({ data }) => {
         </Link>
       </Box>
       <Stack spacing={12} mt="12">
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          const description = node.frontmatter.description || node.excerpt
-          return (
-            <BlogPostTeaser
-              key={node.fields.slug}
-              slug={node.fields.slug}
-              title={title}
-              date={node.frontmatter.date}
-              description={description}
-            />
-          )
-        })}
+        {posts.map(({ node }) => (
+          <BlogPostTeaser
+            key={node._meta.id}
+            slug={linkResolver(node._meta)}
+            title={PrismicText.asText(node.title)}
+            date={node.date}
+          />
+        ))}
       </Stack>
     </Layout>
   )
@@ -63,24 +60,17 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
-      limit: 3
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { template: { eq: "blog-post" } } }
-    ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
+    prismic {
+      allBlog_posts {
+        edges {
+          node {
             title
-            date(
-              formatString: "D MMMM YYYY"
-              locale: "fr-CH"
-            )
-            description
+            date
+            _meta {
+              id
+              uid
+              type
+            }
           }
         }
       }
