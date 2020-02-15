@@ -107,6 +107,12 @@ module.exports = {
       options: {
         repositoryName: 'eav-vd',
         pages: [{
+          type: 'Page',
+          match: '/page/:uid',
+          path: '/pages',
+          component: require.resolve('./src/templates/page.js'),
+        },
+        {
           type: 'Blog_post',
           match: '/blog/:uid',
           path: '/blog-preview',
