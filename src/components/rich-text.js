@@ -49,7 +49,7 @@ const RichText = ({ children, ...props }) => {
 }
 
 RichText.propTypes = {
-  content: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 export default RichText
