@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link as GatsbyLink } from "gatsby"
 import { RichText as PrismicText } from "prismic-reactjs"
-import { linkResolver } from '../utils/link-resolver'
+import { linkResolver } from "../utils/link-resolver"
 import { Box, Stack, Link } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
@@ -10,17 +10,20 @@ import RichText from "../components/rich-text"
 import PageHeader from "../components/page-header"
 import BlogPostTeaser from "../components/blog-post-teaser"
 
-const IndexTemplate = ({ data }) => {
+const Index = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
-  const post = data.markdownRemark
   const posts = data.prismic.allBlog_posts.edges
+  const doc = data.prismic.allHomepages.edges.slice(0, 1).pop()
+  if (!doc) return null
 
   return (
     <Layout title={siteTitle}>
       <SEO title={siteTitle} />
-      <PageHeader title={post.frontmatter.title} />
+      <PageHeader title={PrismicText.asText(doc.node.title)} />
       <Box as="section">
-        <RichText content={post.html} mt="4" mb="2" />
+        <RichText mt="4" mb="2">
+          {PrismicText.render(doc.node.homepage_body)}
+        </RichText>
         <Link
           as={GatsbyLink}
           to="/apropos"
@@ -45,22 +48,24 @@ const IndexTemplate = ({ data }) => {
   )
 }
 
-export default IndexTemplate
+export default Index
 
 export const pageQuery = graphql`
-  query IndexPageBySlug($slug: String!) {
+  query HomepageQuery {
     site {
       siteMetadata {
         title
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-      }
-    }
     prismic {
+      allHomepages {
+        edges {
+          node {
+            title
+            homepage_body
+          }
+        }
+      }
       allBlog_posts {
         edges {
           node {
