@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { RichText as PrismicText } from "prismic-reactjs"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,44 +12,38 @@ export const BlogPostTemplate = ({ title, description, date, content }) => (
     <SEO title={title} description={description} />
     <article>
       <PageHeader title={title} subtitle={date} />
-      <RichText content={content} mt="8" />
+      <RichText mt="8">{content}</RichText>
     </article>
   </Layout>
 )
 
 const BlogPost = ({ data }) => {
-  const post = data.markdownRemark
+  const doc = data.prismic.allBlog_posts.edges.slice(0, 1).pop()
+  if (!doc) return null
 
   return (
     <BlogPostTemplate
-      title={post.frontmatter.title}
-      description={post.frontmatter.description || post.excerpt}
-      date={post.frontmatter.date}
-      content={post.html}
+      title={PrismicText.asText(doc.node.title)}
+      // description={post.frontmatter.description || post.excerpt}
+      date={doc.node.date}
+      content={PrismicText.render(doc.node.post_body)}
     />
   )
 }
 
 export default BlogPost
 
-export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        date(
-          formatString: "D MMMM YYYY"
-          locale: "fr-CH"
-        )
-        description
+export const query = graphql`
+  query BlogPostQuery($uid: String) {
+    prismic {
+      allBlog_posts(uid: $uid) {
+        edges {
+          node {
+            title
+            date
+            post_body
+          }
+        }
       }
     }
   }

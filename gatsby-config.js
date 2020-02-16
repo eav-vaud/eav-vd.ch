@@ -98,7 +98,7 @@ module.exports = {
           type: 'Blog_post',
           match: '/blog/:uid',
           path: '/blog-preview',
-          component: require.resolve('./src/templates/prismic-blog-post.js'),
+          component: require.resolve('./src/templates/blog-post.js'),
         }],
       }
     }
