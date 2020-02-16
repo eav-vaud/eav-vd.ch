@@ -26,7 +26,7 @@ const Index = ({ data }) => {
         </RichText>
         <Link
           as={GatsbyLink}
-          to="/apropos"
+          to="/a-propos"
           fontSize="xl"
           fontWeight="semibold"
           color="brand"
