@@ -30,7 +30,7 @@ const BlogPost = ({ data }) => {
   return (
     <BlogPostTemplate
       title={PrismicText.asText(doc.node.title)}
-      // description={post.frontmatter.description || post.excerpt}
+      description={PrismicText.asText(doc.node.post_body).substring(0, 160)}
       date={formattedDate}
       content={PrismicText.render(doc.node.post_body)}
     />

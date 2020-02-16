@@ -36,6 +36,7 @@ const BlogIndex = ({ data }) => {
               key={node._meta.id}
               slug={linkResolver(node._meta)}
               title={PrismicText.asText(node.title)}
+              description={PrismicText.asText(node.post_body).substring(0, 200)}
               date={formattedDate}
             />
           )
@@ -68,6 +69,7 @@ export const pageQuery = graphql`
           node {
             title
             date
+            post_body
             _meta {
               id
               uid
