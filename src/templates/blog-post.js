@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { RichText as PrismicText } from "prismic-reactjs"
+import { Date, RichText as PrismicText } from "prismic-reactjs"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -21,11 +21,17 @@ const BlogPost = ({ data }) => {
   const doc = data.prismic.allBlog_posts.edges.slice(0, 1).pop()
   if (!doc) return null
 
+  const formattedDate = Intl.DateTimeFormat("fr-CH", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }).format(Date(doc.node.date))
+
   return (
     <BlogPostTemplate
       title={PrismicText.asText(doc.node.title)}
       // description={post.frontmatter.description || post.excerpt}
-      date={doc.node.date}
+      date={formattedDate}
       content={PrismicText.render(doc.node.post_body)}
     />
   )

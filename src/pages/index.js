@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link as GatsbyLink } from "gatsby"
-import { RichText as PrismicText } from "prismic-reactjs"
+import { Date, RichText as PrismicText } from "prismic-reactjs"
 import { linkResolver } from "../utils/link-resolver"
 import { Box, Stack, Link } from "@chakra-ui/core"
 
@@ -35,14 +35,22 @@ const Index = ({ data }) => {
         </Link>
       </Box>
       <Stack spacing={12} mt="12">
-        {posts.map(({ node }) => (
-          <BlogPostTeaser
-            key={node._meta.id}
-            slug={linkResolver(node._meta)}
-            title={PrismicText.asText(node.title)}
-            date={node.date}
-          />
-        ))}
+        {posts.map(({ node }) => {
+          const formattedDate = Intl.DateTimeFormat("fr-CH", {
+            year: "numeric",
+            month: "long",
+            day: "2-digit",
+          }).format(Date(node.date))
+
+          return (
+            <BlogPostTeaser
+              key={node._meta.id}
+              slug={linkResolver(node._meta)}
+              title={PrismicText.asText(node.title)}
+              date={formattedDate}
+            />
+          )
+        })}
       </Stack>
     </Layout>
   )
