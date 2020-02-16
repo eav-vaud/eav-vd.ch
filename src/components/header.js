@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql, Link as GatsbyLink, StaticQuery } from "gatsby"
+import { RichText as PrismicText } from "prismic-reactjs"
+import { linkResolver } from '../utils/link-resolver'
 import { Link, Box, Stack } from "@chakra-ui/core"
 
 const isActive = ({ isCurrent }) => {
@@ -34,45 +36,83 @@ const Header = ({ title, ...props }) => {
         {title}
       </Link>
       <StaticQuery
-        query={graphql`
-          query SiteTitleQuery {
-            site {
-              siteMetadata {
-                title
-                menuLinks {
-                  name
-                  link
-                }
-              }
-            }
-          }
-        `}
-        render={data => (
-          <Stack
-            as="nav"
-            isInline
-            spacing={4}
-            flexWrap="wrap"
-            mt={{ base: 2, md: 0 }}
-            ml={{ md: 8 }}
-          >
-            {data.site.siteMetadata.menuLinks.map(link => (
-              <Link
-                as={NavLink}
-                key={link.name}
-                to={link.link}
-                fontSize="xl"
-                fontWeight="bold"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </Stack>
-        )}
+        query={siteQuery}
+        render={data => {
+          const doc = data.prismic.allMenus.edges.slice(0, 1).pop()
+          const navlinks = doc.node.navlinks
+          if (!doc) return null
+
+          return (
+            <Stack
+              as="nav"
+              isInline
+              spacing={4}
+              flexWrap="wrap"
+              mt={{ base: 2, md: 0 }}
+              ml={{ md: 8 }}
+            >
+              {navlinks.map(navlink => (
+                <Link
+                  as={NavLink}
+                  key={navlink.navlink_url._meta.id}
+                  to={linkResolver(navlink.navlink_url._meta)}
+                  fontSize="xl"
+                  fontWeight="bold"
+                >
+                  {PrismicText.asText(navlink.navlink_label)}
+                </Link>
+              ))}
+            </Stack>
+          )
+        }}
       />
     </Box>
   )
 }
+
+export const siteQuery = graphql`
+  query SiteQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    prismic {
+      allMenus {
+        edges {
+          node {
+            navlinks {
+              navlink_label
+              navlink_url {
+                ... on PRISMIC_Page {
+                  _meta {
+                    uid
+                    type
+                    id
+                  }
+                }
+                ... on PRISMIC_Resources_page {
+                  _meta {
+                    uid
+                    type
+                    id
+                  }
+                }
+                ... on PRISMIC_News_page {
+                  _meta {
+                    uid
+                    type
+                    id
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,

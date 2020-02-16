@@ -1,29 +1,40 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link as GatsbyLink } from "gatsby"
 import { Date, RichText as PrismicText } from "prismic-reactjs"
 import { linkResolver } from "../utils/link-resolver"
-import { Stack } from "@chakra-ui/core"
+import { Box, Stack, Link } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PageHeader from "../components/page-header"
 import RichText from "../components/rich-text"
+import PageHeader from "../components/page-header"
 import BlogPostTeaser from "../components/blog-post-teaser"
 
-const BlogIndex = ({ data }) => {
+const Index = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.prismic.allBlog_posts.edges
-  const doc = data.prismic.allNews_pages.edges.slice(0, 1).pop()
+  const doc = data.prismic.allHomepages.edges.slice(0, 1).pop()
   if (!doc) return null
 
   return (
     <Layout title={siteTitle}>
-      <SEO title={PrismicText.asText(doc.node.title)} />
+      <SEO title={siteTitle} />
       <PageHeader title={PrismicText.asText(doc.node.title)} />
-      {doc.node.body && (
-        <RichText mt="8">{PrismicText.render(doc.node.body)}</RichText>
-      )}
-      <Stack spacing={16} mt="8">
+      <Box as="section">
+        <RichText mt="4" mb="2">
+          {PrismicText.render(doc.node.homepage_body)}
+        </RichText>
+        <Link
+          as={GatsbyLink}
+          to="/a-propos"
+          fontSize="xl"
+          fontWeight="semibold"
+          color="brand"
+        >
+          En savoir plus...
+        </Link>
+      </Box>
+      <Stack spacing={12} mt="12">
         {posts.map(({ node }) => {
           const formattedDate = Intl.DateTimeFormat("fr-CH", {
             year: "numeric",
@@ -46,21 +57,21 @@ const BlogIndex = ({ data }) => {
   )
 }
 
-export default BlogIndex
+export default Index
 
 export const pageQuery = graphql`
-  query {
+  query HomepageQuery {
     site {
       siteMetadata {
         title
       }
     }
     prismic {
-      allNews_pages(uid: "actualites") {
+      allHomepages {
         edges {
           node {
             title
-            body
+            homepage_body
           }
         }
       }

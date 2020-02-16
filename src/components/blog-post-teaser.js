@@ -15,11 +15,9 @@ const BlogPostTeaser = ({ slug, title, date, description, ...props }) => (
     </Box>
     <Box as="section" mt="3">
       {description && (
-        <Text
-          fontSize="lg"
-          mb="2"
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
+        <Text fontSize="lg" mb="2">
+          {description}…
+        </Text>
       )}
       <Link
         as={GatsbyLink}
@@ -28,7 +26,7 @@ const BlogPostTeaser = ({ slug, title, date, description, ...props }) => (
         fontWeight="semibold"
         color="brand"
       >
-        En lire plus...
+        En lire plus
       </Link>
     </Box>
   </Box>
