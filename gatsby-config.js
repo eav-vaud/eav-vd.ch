@@ -4,24 +4,6 @@ module.exports = {
     author: `EAV Vaud`,
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
-    menuLinks: [
-      {
-        name: `Actualités`,
-        link: `/actualites`,
-      },
-      {
-        name: `A propos`,
-        link: `/apropos`,
-      },
-      {
-        name: `Ressources`,
-        link: `/ressources`,
-      },
-      {
-        name: `Contact`,
-        link: `/contact`,
-      },
-    ],
   },
   plugins: [
     {
@@ -108,7 +90,7 @@ module.exports = {
         repositoryName: 'eav-vd',
         pages: [{
           type: 'Page',
-          match: '/page/:uid',
+          match: '/:uid',
           path: '/pages',
           component: require.resolve('./src/templates/page.js'),
         },
