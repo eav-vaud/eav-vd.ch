@@ -3,12 +3,14 @@ import PropTypes from "prop-types"
 import { ThemeProvider } from "@chakra-ui/core"
 import eavTheme from "../utils/theme"
 import { Grid, Box } from "@chakra-ui/core"
+import 'typeface-fira-sans'
 
 import Header from "./header.js"
 
 const Layout = ({ title, children }) => (
   <ThemeProvider theme={eavTheme}>
     <Grid
+      fontFamily="body"
       templateColumns="minmax(1rem, 1fr) minmax(auto, 42rem) minmax(1rem, 1fr)"
       pb="48"
     >
