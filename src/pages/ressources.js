@@ -41,9 +41,13 @@ const Resources = ({ data }) => {
                   position="relative"
                   top="1"
                   mr="4"
-                  color="gray.300"
+                  color="gray.400"
                 />
-                <Link href={file.file_link.url} color="brand">
+                <Link
+                  href={file.file_link.url}
+                  fontWeight="medium"
+                  color="brand"
+                >
                   {PrismicText.asText(file.file_title)}
                 </Link>
               </ListItem>
@@ -70,10 +74,14 @@ const Resources = ({ data }) => {
                   position="relative"
                   top="1"
                   mr="4"
-                  color="gray.300"
+                  color="gray.400"
                 />
                 <div>
-                  <Link href={link.link_url.url} color="brand">
+                  <Link
+                    href={link.link_url.url}
+                    fontWeight="medium"
+                    color="brand"
+                  >
                     {PrismicText.asText(link.link_title)}
                   </Link>
                   {link.link_description && (
