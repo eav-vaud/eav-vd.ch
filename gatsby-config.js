@@ -19,6 +19,8 @@ module.exports = {
       resolve: 'gatsby-source-prismic-graphql',
       options: {
         repositoryName: 'eav-vd',
+        path: '/preview',
+        previews: true,
         pages: [{
           type: 'Page',
           match: '/:uid',

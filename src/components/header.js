@@ -72,11 +72,6 @@ const Header = ({ title, ...props }) => {
 
 export const siteQuery = graphql`
   query SiteQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     prismic {
       allMenus {
         edges {
