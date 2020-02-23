@@ -11,7 +11,14 @@ const BlogPostTeaser = ({ slug, title, date, description, ...props }) => (
           {title}
         </Link>
       </Heading>
-      <Text mt="1" fontSize="2xl">
+      <Text
+        mt="1"
+        fontSize="2xl"
+        fontWeight="medium"
+        color="gray.600"
+        textTransform="uppercase"
+        letterSpacing="wide"
+      >
         {date}
       </Text>
     </Box>

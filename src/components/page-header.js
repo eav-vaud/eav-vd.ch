@@ -8,7 +8,15 @@ const PageHeader = ({ title, subtitle, ...props }) => (
       {title}
     </Heading>
     {subtitle && (
-      <Text as="p" mt="2" fontSize="3xl">
+      <Text
+        as="p"
+        mt="2"
+        fontSize="3xl"
+        fontWeight="medium"
+        color="gray.600"
+        textTransform="uppercase"
+        letterSpacing="wide"
+      >
         {subtitle}
       </Text>
     )}
