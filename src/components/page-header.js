@@ -17,7 +17,7 @@ const PageHeader = ({ title, subtitle, ...props }) => (
 
 PageHeader.propTypes = {
   title: PropTypes.string.isRequired,
-  date: PropTypes.string,
+  subtitle: PropTypes.string,
 }
 
 export default PageHeader
