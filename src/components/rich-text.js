@@ -19,16 +19,17 @@ const RichText = ({ children, ...props }) => {
           textDecoration: `underline`,
         },
         h1: {
-          fontSize: theme.fontSizes[`4xl`],
+          fontSize: theme.fontSizes[`6xl`],
           fontWeight: theme.fontWeights.bold,
           lineHeight: theme.lineHeights.shorter,
         },
         h2: {
-          fontSize: theme.fontSizes[`3xl`],
+          fontSize: theme.fontSizes[`5xl`],
           fontWeight: theme.fontWeights.bold,
+          lineHeight: theme.lineHeights.shorter,
         },
         h3: {
-          fontSize: theme.fontSizes[`2xl`],
+          fontSize: theme.fontSizes[`4xl`],
           fontWeight: theme.fontWeights.bold,
         },
         h4: {
