@@ -21,20 +21,20 @@ const Index = ({ data }) => {
       <SEO title={siteTitle} />
       <PageHeader title={PrismicText.asText(doc.node.title)} />
       <Box as="section">
-        <RichText mt="4" mb="2">
+        <RichText mt="5" mb="5">
           {PrismicText.render(doc.node.homepage_body)}
         </RichText>
         <Link
           as={GatsbyLink}
           to="/a-propos"
-          fontSize="xl"
+          fontSize="3xl"
           fontWeight="semibold"
           color="brand"
         >
           En savoir plus...
         </Link>
       </Box>
-      <Stack spacing={12} mt="12">
+      <Stack spacing={20} mt="20">
         {posts.map(({ node }) => {
           const formattedDate = Intl.DateTimeFormat("fr-CH", {
             year: "numeric",

@@ -16,7 +16,7 @@ const PageTemplate = ({ data }) => {
     <Layout title={siteTitle}>
       <SEO title={PrismicText.asText(doc.node.title)} />
       <PageHeader title={PrismicText.asText(doc.node.title)} />
-      <RichText mt="8">{PrismicText.render(doc.node.page_body)}</RichText>
+      <RichText mt="16">{PrismicText.render(doc.node.page_body)}</RichText>
     </Layout>
   )
 }

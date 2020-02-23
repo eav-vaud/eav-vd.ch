@@ -20,8 +20,8 @@ const Header = ({ title, ...props }) => {
     <Box
       as="header"
       display={{ md: "flex" }}
-      pt="8"
-      pb={[8, 16]}
+      pt="12"
+      pb={[8, 24]}
       justifyContent="space-between"
       alignItems="baseline"
       {...props}
@@ -30,7 +30,7 @@ const Header = ({ title, ...props }) => {
         as={GatsbyLink}
         to={`/`}
         color="brand"
-        fontSize="xl"
+        fontSize="3xl"
         fontWeight="800"
       >
         {title}
@@ -46,7 +46,7 @@ const Header = ({ title, ...props }) => {
             <Stack
               as="nav"
               isInline
-              spacing={4}
+              spacing={8}
               flexWrap="wrap"
               mt={{ base: 2, md: 0 }}
               ml={{ md: 8 }}
@@ -56,7 +56,7 @@ const Header = ({ title, ...props }) => {
                   as={NavLink}
                   key={navlink.navlink_url._meta.id}
                   to={linkResolver(navlink.navlink_url._meta)}
-                  fontSize="xl"
+                  fontSize="3xl"
                   fontWeight="bold"
                 >
                   {PrismicText.asText(navlink.navlink_label)}

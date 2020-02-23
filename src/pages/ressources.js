@@ -20,19 +20,19 @@ const Resources = ({ data }) => {
       <SEO title={PrismicText.asText(doc.node.title)} />
       <PageHeader title={PrismicText.asText(doc.node.title)} />
       {doc.node.body && (
-        <RichText mt="8">{PrismicText.render(doc.node.body)}</RichText>
+        <RichText mt="16">{PrismicText.render(doc.node.body)}</RichText>
       )}
       {files && (
-        <Box as="section" mt="8">
-          <Heading as="h2" fontSize="2xl">
+        <Box as="section" mt="12">
+          <Heading as="h2" fontSize="4xl">
             Documents
           </Heading>
-          <List spacing={4} display="flex" flexDirection="column" mt="4">
+          <List spacing={8} display="flex" flexDirection="column" mt="8">
             {files.map((file, index) => (
               <ListItem
                 key={index}
                 display="inline-flex"
-                fontSize="xl"
+                fontSize="3xl"
                 alignItems="baseline"
               >
                 <Icon
@@ -40,7 +40,7 @@ const Resources = ({ data }) => {
                   flexShrink="0"
                   position="relative"
                   top="1"
-                  mr="3"
+                  mr="4"
                   color="gray.300"
                 />
                 <Link href={file.file_link.url} color="brand">
@@ -52,16 +52,16 @@ const Resources = ({ data }) => {
         </Box>
       )}
       {links && (
-        <Box as="section" mt="8">
-          <Heading as="h2" fontSize="2xl">
+        <Box as="section" mt="12">
+          <Heading as="h2" fontSize="4xl">
             Liens
           </Heading>
-          <List spacing={6} display="flex" flexDirection="column" mt="4">
+          <List spacing={8} display="flex" flexDirection="column" mt="8">
             {links.map((link, index) => (
               <ListItem
                 key={index}
                 display="inline-flex"
-                fontSize="xl"
+                fontSize="3xl"
                 alignItems="baseline"
               >
                 <Icon
@@ -69,7 +69,7 @@ const Resources = ({ data }) => {
                   flexShrink="0"
                   position="relative"
                   top="1"
-                  mr="3"
+                  mr="4"
                   color="gray.300"
                 />
                 <div>
@@ -77,7 +77,7 @@ const Resources = ({ data }) => {
                     {PrismicText.asText(link.link_title)}
                   </Link>
                   {link.link_description && (
-                    <Text fontSize="lg">
+                    <Text fontSize="2xl">
                       {PrismicText.asText(link.link_description)}
                     </Text>
                   )}

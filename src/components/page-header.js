@@ -4,11 +4,11 @@ import { Box, Heading, Text } from "@chakra-ui/core"
 
 const PageHeader = ({ title, subtitle, ...props }) => (
   <Box as="header" {...props}>
-    <Heading as="h1" fontSize="5xl">
+    <Heading as="h1" fontSize="6xl">
       {title}
     </Heading>
     {subtitle && (
-      <Text as="p" mt="2" fontSize="xl">
+      <Text as="p" mt="2" fontSize="3xl">
         {subtitle}
       </Text>
     )}

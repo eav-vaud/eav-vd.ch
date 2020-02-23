@@ -12,7 +12,7 @@ export const BlogPostTemplate = ({ title, description, date, content }) => (
     <SEO title={title} description={description} />
     <article>
       <PageHeader title={title} subtitle={date} />
-      <RichText mt="8">{content}</RichText>
+      <RichText mt="16">{content}</RichText>
     </article>
   </Layout>
 )

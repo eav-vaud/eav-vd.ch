@@ -10,7 +10,7 @@ const RichText = ({ children, ...props }) => {
   return (
     <Box
       css={{
-        fontSize: theme.fontSizes.xl,
+        fontSize: theme.fontSizes[`3xl`],
         "> * + *": {
           marginTop: `1.5em`,
         },
@@ -39,7 +39,7 @@ const RichText = ({ children, ...props }) => {
         },
         ol: {
           paddingLeft: `1em`,
-        }
+        },
       }}
       {...props}
     >
