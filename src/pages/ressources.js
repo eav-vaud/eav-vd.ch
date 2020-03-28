@@ -9,14 +9,13 @@ import PageHeader from "../components/page-header"
 import RichText from "../components/rich-text"
 
 const Resources = ({ data }) => {
-  const siteTitle = data.site.siteMetadata.title
   const doc = data.prismic.allResources_pages.edges.slice(0, 1).pop()
   const files = doc.node.files
   const links = doc.node.links
   if (!doc) return null
 
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO title={PrismicText.asText(doc.node.title)} />
       <PageHeader title={PrismicText.asText(doc.node.title)} />
       {doc.node.body && (

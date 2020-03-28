@@ -7,7 +7,7 @@ import "typeface-fira-sans"
 
 import Header from "./header.js"
 
-const Layout = ({ title, children }) => (
+const Layout = ({ children }) => (
   <ThemeProvider theme={eavTheme}>
     <CSSReset />
     <Grid
@@ -15,7 +15,7 @@ const Layout = ({ title, children }) => (
       templateColumns="minmax(1rem, 1fr) minmax(auto, 60em) minmax(1rem, 1fr)"
       pb="48"
     >
-      <Box as={Header} gridColumn="2" title={title} />
+      <Box as={Header} gridColumn="2" />
       <Box as="main" gridColumn="2">
         {children}
       </Box>
@@ -24,7 +24,6 @@ const Layout = ({ title, children }) => (
 )
 
 Layout.propTypes = {
-  title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 }
 

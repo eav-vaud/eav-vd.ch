@@ -11,13 +11,12 @@ import RichText from "../components/rich-text"
 import BlogPostTeaser from "../components/blog-post-teaser"
 
 const BlogIndex = ({ data }) => {
-  const siteTitle = data.site.siteMetadata.title
   const posts = data.prismic.allBlog_posts.edges
   const doc = data.prismic.allNews_pages.edges.slice(0, 1).pop()
   if (!doc) return null
 
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO title={PrismicText.asText(doc.node.title)} />
       <PageHeader title={PrismicText.asText(doc.node.title)} />
       {doc.node.body && (
@@ -50,11 +49,6 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     prismic {
       allNews_pages(uid: "actualites") {
         edges {

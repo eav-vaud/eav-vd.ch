@@ -11,14 +11,13 @@ import PageHeader from "../components/page-header"
 import BlogPostTeaser from "../components/blog-post-teaser"
 
 const Index = ({ data }) => {
-  const siteTitle = data.site.siteMetadata.title
   const posts = data.prismic.allBlog_posts.edges
   const doc = data.prismic.allHomepages.edges.slice(0, 1).pop()
   if (!doc) return null
 
   return (
-    <Layout title={siteTitle}>
-      <SEO title={siteTitle} />
+    <Layout>
+      <SEO title="EAV Vaud" />
       <PageHeader title={PrismicText.asText(doc.node.title)} />
       <Box as="section">
         <RichText mt="5" mb="5">

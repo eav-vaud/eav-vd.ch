@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { graphql, Link as GatsbyLink, StaticQuery } from "gatsby"
 import { RichText as PrismicText } from "prismic-reactjs"
 import { linkResolver } from "../utils/link-resolver"
@@ -15,7 +14,7 @@ const NavLink = ({ children, ...props }) => (
   </GatsbyLink>
 )
 
-const Header = ({ title, ...props }) => {
+const Header = ({ ...props }) => {
   return (
     <Box
       as="header"
@@ -32,7 +31,7 @@ const Header = ({ title, ...props }) => {
           height="24px"
           viewBox="0 0 408 120"
         >
-          <title>{title}</title>
+          <title>EAV Vaud</title>
           <path
             fill="currentColor"
             fill-rule="nonzero"
@@ -113,9 +112,5 @@ export const siteQuery = graphql`
     }
   }
 `
-
-Header.propTypes = {
-  title: PropTypes.string.isRequired,
-}
 
 export default Header

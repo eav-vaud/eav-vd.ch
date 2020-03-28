@@ -8,7 +8,7 @@ import PageHeader from "../components/page-header"
 import RichText from "../components/rich-text"
 
 export const BlogPostTemplate = ({ title, description, date, content }) => (
-  <Layout title="EAV-Vaud">
+  <Layout>
     <SEO title={title} description={description} />
     <article>
       <PageHeader title={title} subtitle={date} />
@@ -37,8 +37,6 @@ const BlogPost = ({ data }) => {
   )
 }
 
-export default BlogPost
-
 export const query = graphql`
   query BlogPostQuery($uid: String) {
     prismic {
@@ -54,3 +52,5 @@ export const query = graphql`
     }
   }
 `
+
+export default BlogPost
