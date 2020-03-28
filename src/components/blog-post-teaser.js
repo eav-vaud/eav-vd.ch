@@ -35,7 +35,7 @@ const BlogPostTeaser = ({ slug, title, date, description, ...props }) => (
         fontWeight="semibold"
         color="brand"
       >
-        En lire plus
+        Lire la suite ⟶
       </Link>
     </Box>
   </Box>
