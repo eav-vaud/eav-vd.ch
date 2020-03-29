@@ -40,7 +40,7 @@ const Header = ({ ...props }) => {
         </svg>
       </Link>
       <StaticQuery
-        query={`${siteQuery}`}
+        query={`${navQuery}`}
         render={data => {
           const doc = data.prismic.allMenus.edges.slice(0, 1).pop()
           const navlinks = doc.node.navlinks
@@ -74,8 +74,8 @@ const Header = ({ ...props }) => {
   )
 }
 
-export const siteQuery = graphql`
-  query SiteQuery {
+export const navQuery = graphql`
+  query NavQuery {
     prismic {
       allMenus {
         edges {

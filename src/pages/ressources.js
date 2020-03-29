@@ -113,11 +113,6 @@ export default Resources
 
 export const pageQuery = graphql`
   query ResourcesPageQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     prismic {
       allResources_pages {
         edges {

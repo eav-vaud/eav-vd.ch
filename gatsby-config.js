@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `EAV Vaud`,
     author: `EAV Vaud`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `Association enseignants d'arts visuels.`,
+    siteUrl: `https://eav-vd.ch/`,
   },
   plugins: [
     `gatsby-transformer-sharp`,
@@ -16,24 +16,26 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-prismic-graphql',
+      resolve: "gatsby-source-prismic-graphql",
       options: {
-        repositoryName: 'eav-vd',
-        path: '/preview',
+        repositoryName: "eav-vd",
+        path: "/preview",
         previews: true,
-        pages: [{
-          type: 'Page',
-          match: '/:uid',
-          path: '/pages',
-          component: require.resolve('./src/templates/page.js'),
-        },
-        {
-          type: 'Blog_post',
-          match: '/blog/:uid',
-          path: '/blog-preview',
-          component: require.resolve('./src/templates/blog-post.js'),
-        }],
-      }
-    }
+        pages: [
+          {
+            type: "Page",
+            match: "/:uid",
+            path: "/pages",
+            component: require.resolve("./src/templates/page.js"),
+          },
+          {
+            type: "Blog_post",
+            match: "/blog/:uid",
+            path: "/blog-preview",
+            component: require.resolve("./src/templates/blog-post.js"),
+          },
+        ],
+      },
+    },
   ],
 }

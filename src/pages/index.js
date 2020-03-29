@@ -17,7 +17,7 @@ const Index = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="EAV Vaud" />
+      <SEO title={PrismicText.asText(doc.node.title)} />
       <PageHeader title={PrismicText.asText(doc.node.title)} />
       <Box as="section">
         <RichText my={[3, 5]}>
@@ -60,11 +60,6 @@ export default Index
 
 export const pageQuery = graphql`
   query HomepageQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     prismic {
       allHomepages {
         edges {
