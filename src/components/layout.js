@@ -12,7 +12,7 @@ const Layout = ({ children }) => (
     <CSSReset />
     <Grid
       fontFamily="body"
-      templateColumns="minmax(1rem, 1fr) minmax(auto, 60em) minmax(1rem, 1fr)"
+      templateColumns="minmax(1rem, 1fr) minmax(auto, 55em) minmax(1rem, 1fr)"
       pb="48"
     >
       <Box as={Header} gridColumn="2" />
