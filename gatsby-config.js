@@ -37,5 +37,17 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `EAV Vaud`,
+        short_name: `EAV Vaud`,
+        start_url: `/`,
+        background_color: `#fff`,
+        theme_color: `392079`,
+        display: `standalone`,
+        icon: `static/favicon.png`,
+      },
+    },
   ],
 }
