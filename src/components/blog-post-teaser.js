@@ -6,14 +6,14 @@ import { Box, Heading, Text, Link } from "@chakra-ui/core"
 const BlogPostTeaser = ({ slug, title, date, description, ...props }) => (
   <Box as="article" {...props}>
     <Box as="header">
-      <Heading as="h3" fontSize="4xl">
+      <Heading as="h3" fontSize={["2xl", "4xl"]}>
         <Link as={GatsbyLink} to={slug}>
           {title}
         </Link>
       </Heading>
       <Text
         mt="1"
-        fontSize="2xl"
+        fontSize={["lg", "2xl"]}
         fontWeight="medium"
         color="gray.600"
         textTransform="uppercase"
@@ -22,16 +22,16 @@ const BlogPostTeaser = ({ slug, title, date, description, ...props }) => (
         {date}
       </Text>
     </Box>
-    <Box as="section" mt="5">
+    <Box as="section" mt={[3, 5]}>
       {description && (
-        <Text mb="5" fontSize="3xl">
+        <Text mb={[3, 5]} fontSize={["xl", "3xl"]}>
           {description}…
         </Text>
       )}
       <Link
         as={GatsbyLink}
         to={slug}
-        fontSize="3xl"
+        fontSize={["xl", "3xl"]}
         fontWeight="semibold"
         color="brand"
       >

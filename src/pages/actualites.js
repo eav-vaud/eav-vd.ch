@@ -20,9 +20,9 @@ const BlogIndex = ({ data }) => {
       <SEO title={PrismicText.asText(doc.node.title)} />
       <PageHeader title={PrismicText.asText(doc.node.title)} />
       {doc.node.body && (
-        <RichText mt="16">{PrismicText.render(doc.node.body)}</RichText>
+        <RichText mt={[3, 16]}>{PrismicText.render(doc.node.body)}</RichText>
       )}
-      <Stack spacing={20} mt="12">
+      <Stack spacing={[16, 20]} mt={[8, 12]}>
         {posts.map(({ node }) => {
           const formattedDate = Intl.DateTimeFormat("fr-CH", {
             year: "numeric",

@@ -20,20 +20,20 @@ const Index = ({ data }) => {
       <SEO title="EAV Vaud" />
       <PageHeader title={PrismicText.asText(doc.node.title)} />
       <Box as="section">
-        <RichText mt="5" mb="5">
+        <RichText my={[3, 5]}>
           {PrismicText.render(doc.node.homepage_body)}
         </RichText>
         <Link
           as={GatsbyLink}
           to="/a-propos"
-          fontSize="3xl"
+          fontSize={["xl", "3xl"]}
           fontWeight="semibold"
           color="brand"
         >
-          En savoir plus...
+          Lire la suite ⟶
         </Link>
       </Box>
-      <Stack spacing={20} mt="20">
+      <Stack spacing={[16, 20]} mt={[16, 20]}>
         {posts.map(({ node }) => {
           const formattedDate = Intl.DateTimeFormat("fr-CH", {
             year: "numeric",

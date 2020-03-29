@@ -19,8 +19,8 @@ const Header = ({ ...props }) => {
     <Box
       as="header"
       display={{ md: "flex" }}
-      pt="12"
-      pb={[8, 24]}
+      pt={[8, 12]}
+      pb={[12, 24]}
       justifyContent="space-between"
       alignItems="baseline"
       {...props}
@@ -52,7 +52,7 @@ const Header = ({ ...props }) => {
               isInline
               spacing={8}
               flexWrap="wrap"
-              mt={{ base: 2, md: 0 }}
+              mt={[4, 0]}
               ml={{ md: 8 }}
             >
               {navlinks.map(navlink => (
@@ -60,7 +60,7 @@ const Header = ({ ...props }) => {
                   as={NavLink}
                   key={navlink.navlink_url._meta.id}
                   to={linkResolver(navlink.navlink_url._meta)}
-                  fontSize="3xl"
+                  fontSize={["xl", "3xl"]}
                   fontWeight="bold"
                 >
                   {PrismicText.asText(navlink.navlink_label)}
