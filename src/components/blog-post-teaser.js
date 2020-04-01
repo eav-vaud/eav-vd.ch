@@ -32,7 +32,7 @@ const BlogPostTeaser = ({ slug, title, date, description, ...props }) => (
         as={GatsbyLink}
         to={slug}
         fontSize={["xl", "3xl"]}
-        fontWeight="semibold"
+        fontWeight="medium"
         color="brand"
       >
         Lire la suite ⟶

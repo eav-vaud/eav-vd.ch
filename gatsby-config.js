@@ -49,5 +49,16 @@ module.exports = {
         icon: `static/favicon.png`,
       },
     },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Fira Sans`,
+            variants: [`400`, `500`, `700`],
+          },
+        ],
+      },
+    },
   ],
 }

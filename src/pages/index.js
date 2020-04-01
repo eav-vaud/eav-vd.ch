@@ -27,7 +27,7 @@ const Index = ({ data }) => {
           as={GatsbyLink}
           to="/a-propos"
           fontSize={["xl", "3xl"]}
-          fontWeight="semibold"
+          fontWeight="medium"
           color="brand"
         >
           Lire la suite ⟶
