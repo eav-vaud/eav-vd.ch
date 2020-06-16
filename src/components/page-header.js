@@ -4,7 +4,7 @@ import { Box, Heading, Text } from "@chakra-ui/core"
 
 const PageHeader = ({ title, subtitle, ...props }) => (
   <Box as="header" {...props}>
-    <Heading as="h1" fontSize={["4xl", "6xl"]} maxWidth={["auto", "20ch"]}>
+    <Heading as="h1" fontSize={["4xl", "6xl"]}>
       {title}
     </Heading>
     {subtitle && (

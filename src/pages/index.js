@@ -1,12 +1,11 @@
 import React from "react"
-import { graphql, Link as GatsbyLink } from "gatsby"
+import { graphql } from "gatsby"
 import { Date, RichText as PrismicText } from "prismic-reactjs"
 import { linkResolver } from "../utils/link-resolver"
-import { Box, Stack, Link } from "@chakra-ui/core"
+import { Stack } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import RichText from "../components/rich-text"
 import PageHeader from "../components/page-header"
 import BlogPostTeaser from "../components/blog-post-teaser"
 
@@ -19,20 +18,6 @@ const Index = ({ data }) => {
     <Layout>
       <SEO title={PrismicText.asText(doc.node.title)} />
       <PageHeader title={PrismicText.asText(doc.node.title)} />
-      <Box as="section">
-        <RichText my={[3, 5]}>
-          {PrismicText.render(doc.node.homepage_body)}
-        </RichText>
-        <Link
-          as={GatsbyLink}
-          to="/a-propos"
-          fontSize={["xl", "3xl"]}
-          fontWeight="medium"
-          color="brand"
-        >
-          Lire la suite ⟶
-        </Link>
-      </Box>
       <Stack spacing={[16, 20]} mt={[16, 20]}>
         {posts.map(({ node }) => {
           const formattedDate = Intl.DateTimeFormat("fr-CH", {
