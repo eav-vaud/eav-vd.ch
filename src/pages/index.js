@@ -18,7 +18,7 @@ const Index = ({ data }) => {
     <Layout>
       <SEO title={PrismicText.asText(doc.node.title)} />
       <PageHeader title={PrismicText.asText(doc.node.title)} />
-      <Stack spacing={[16, 20]} mt={[16, 20]}>
+      <Stack spacing={[16, 20]} mt={[16, 24]}>
         {posts.map(({ node }) => {
           const formattedDate = Intl.DateTimeFormat("fr-CH", {
             year: "numeric",
