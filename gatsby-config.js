@@ -44,7 +44,7 @@ module.exports = {
         short_name: `EAV Vaud`,
         start_url: `/`,
         background_color: `#fff`,
-        theme_color: `392079`,
+        theme_color: `#392079`,
         display: `standalone`,
         icon: `static/favicon.png`,
       },
