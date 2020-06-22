@@ -20,7 +20,7 @@ const Header = ({ ...props }) => {
       as="header"
       display={{ md: "flex" }}
       pt={[8, 12]}
-      pb={[12, 24]}
+      pb={[8, 16]}
       justifyContent="space-between"
       alignItems="baseline"
       {...props}
@@ -52,7 +52,7 @@ const Header = ({ ...props }) => {
               isInline
               spacing={8}
               flexWrap="wrap"
-              mt={[4, 0]}
+              mt={[4, null, 0]}
               ml={{ md: 8 }}
             >
               {navlinks.map(navlink => (
