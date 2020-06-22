@@ -50,7 +50,6 @@ export const pageQuery = graphql`
         edges {
           node {
             title
-            homepage_body
           }
         }
       }
