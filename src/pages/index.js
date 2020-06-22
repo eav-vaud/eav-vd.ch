@@ -6,7 +6,7 @@ import { Stack } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PageHeader from "../components/page-header"
+import SiteTitle from "../components/site-title"
 import BlogPostTeaser from "../components/blog-post-teaser"
 
 const Index = ({ data }) => {
@@ -17,8 +17,8 @@ const Index = ({ data }) => {
   return (
     <Layout>
       <SEO title={PrismicText.asText(doc.node.title)} />
-      <PageHeader title={PrismicText.asText(doc.node.title)} />
-      <Stack spacing={[16, 20]} mt={[16, 24]}>
+      <SiteTitle />
+      <Stack spacing={[16, 20]} mt={[8, 16]}>
         {posts.map(({ node }) => {
           const formattedDate = Intl.DateTimeFormat("fr-CH", {
             year: "numeric",
@@ -50,7 +50,6 @@ export const pageQuery = graphql`
         edges {
           node {
             title
-            homepage_body
           }
         }
       }

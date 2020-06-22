@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { ThemeProvider, CSSReset } from "@chakra-ui/core"
 import eavTheme from "../utils/theme"
 import { Grid, Box } from "@chakra-ui/core"
-// import "typeface-fira-sans"
 
 import Header from "./header.js"
 
