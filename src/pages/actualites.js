@@ -58,7 +58,7 @@ export const pageQuery = graphql`
           }
         }
       }
-      allBlog_posts {
+      allBlog_posts(sortBy: date_DESC) {
         edges {
           node {
             title
