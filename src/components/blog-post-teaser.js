@@ -1,15 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link as GatsbyLink } from "gatsby"
+import NextLink from "next/link"
 import { Box, Heading, Text, Link } from "@chakra-ui/core"
 
 const BlogPostTeaser = ({ slug, title, date, description, ...props }) => (
   <Box as="article" {...props}>
     <Box as="header">
       <Heading as="h3" fontSize={["2xl", "4xl"]}>
-        <Link as={GatsbyLink} to={slug}>
-          {title}
-        </Link>
+        <NextLink href={slug} passHref>
+          <a>{title}</a>
+        </NextLink>
       </Heading>
       <Text
         mt="1"
@@ -28,15 +28,11 @@ const BlogPostTeaser = ({ slug, title, date, description, ...props }) => (
           {description}…
         </Text>
       )}
-      <Link
-        as={GatsbyLink}
-        to={slug}
-        fontSize={["xl", "3xl"]}
-        fontWeight="medium"
-        color="brand"
-      >
-        Lire la suite ⟶
-      </Link>
+      <NextLink href={slug} passHref>
+        <Link fontSize={["xl", "3xl"]} fontWeight="medium" color="brand">
+          Lire la suite ⟶
+        </Link>
+      </NextLink>
     </Box>
   </Box>
 )

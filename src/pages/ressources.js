@@ -1,22 +1,20 @@
 import React from "react"
-import { graphql } from "gatsby"
 import { RichText as PrismicText } from "prismic-reactjs"
 import { Box, Heading, Text, Link, List, ListItem, Icon } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import PageHeader from "../components/page-header"
 import RichText from "../components/rich-text"
+import { getResourcesData } from "../lib/api"
 
 const Resources = ({ data }) => {
-  const doc = data.prismic.allResources_pages.edges.slice(0, 1).pop()
+  const doc = data.allResources_pages.edges.slice(0, 1).pop()
   const files = doc.node.files
   const links = doc.node.links
   if (!doc) return null
 
   return (
     <Layout>
-      <SEO title={PrismicText.asText(doc.node.title)} />
       <PageHeader title={PrismicText.asText(doc.node.title)} />
       {doc.node.body && (
         <RichText mt={[3, 16]}>{PrismicText.render(doc.node.body)}</RichText>
@@ -109,45 +107,12 @@ const Resources = ({ data }) => {
   )
 }
 
-export default Resources
+export async function getStaticProps() {
+  const data = await getResourcesData()
 
-export const pageQuery = graphql`
-  query ResourcesPageQuery {
-    prismic {
-      allResources_pages {
-        edges {
-          node {
-            body
-            title
-            files {
-              file_link {
-                ... on PRISMIC__FileLink {
-                  url
-                }
-                ... on PRISMIC__ImageLink {
-                  url
-                }
-              }
-              file_title
-            }
-            links {
-              link_title
-              link_url {
-                ... on PRISMIC__ExternalLink {
-                  url
-                }
-                ... on PRISMIC__FileLink {
-                  url
-                }
-                ... on PRISMIC__ImageLink {
-                  url
-                }
-              }
-              link_description
-            }
-          }
-        }
-      }
-    }
+  return {
+    props: { data },
   }
-`
+}
+
+export default Resources

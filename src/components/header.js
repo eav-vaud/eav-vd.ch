@@ -1,5 +1,4 @@
 import React from "react"
-import { graphql, Link as GatsbyLink, StaticQuery } from "gatsby"
 import { RichText as PrismicText } from "prismic-reactjs"
 import { linkResolver } from "../utils/link-resolver"
 import { Link, Box, Stack } from "@chakra-ui/core"
@@ -74,43 +73,43 @@ const Header = ({ ...props }) => {
   )
 }
 
-export const navQuery = graphql`
-  query NavQuery {
-    prismic {
-      allMenus {
-        edges {
-          node {
-            navlinks {
-              navlink_label
-              navlink_url {
-                ... on PRISMIC_Page {
-                  _meta {
-                    uid
-                    type
-                    id
-                  }
-                }
-                ... on PRISMIC_Resources_page {
-                  _meta {
-                    uid
-                    type
-                    id
-                  }
-                }
-                ... on PRISMIC_News_page {
-                  _meta {
-                    uid
-                    type
-                    id
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const navQuery = graphql`
+//   query NavQuery {
+//     prismic {
+//       allMenus {
+//         edges {
+//           node {
+//             navlinks {
+//               navlink_label
+//               navlink_url {
+//                 ... on PRISMIC_Page {
+//                   _meta {
+//                     uid
+//                     type
+//                     id
+//                   }
+//                 }
+//                 ... on PRISMIC_Resources_page {
+//                   _meta {
+//                     uid
+//                     type
+//                     id
+//                   }
+//                 }
+//                 ... on PRISMIC_News_page {
+//                   _meta {
+//                     uid
+//                     type
+//                     id
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default Header

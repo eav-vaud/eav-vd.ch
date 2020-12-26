@@ -1,22 +1,20 @@
 import React from "react"
-import { graphql } from "gatsby"
 import { Date, RichText as PrismicText } from "prismic-reactjs"
 import { linkResolver } from "../utils/link-resolver"
 import { Stack } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import SiteTitle from "../components/site-title"
 import BlogPostTeaser from "../components/blog-post-teaser"
+import { getHomepageData } from "../lib/api"
 
 const Index = ({ data }) => {
-  const posts = data.prismic.allBlog_posts.edges
-  const doc = data.prismic.allHomepages.edges.slice(0, 1).pop()
+  const posts = data.allBlog_posts.edges
+  const doc = data.allHomepages.edges.slice(0, 1).pop()
   if (!doc) return null
 
   return (
     <Layout>
-      <SEO title={PrismicText.asText(doc.node.title)} />
       <SiteTitle />
       <Stack spacing={[16, 20]} mt={[8, 16]}>
         {posts.map(({ node }) => {
@@ -41,32 +39,12 @@ const Index = ({ data }) => {
   )
 }
 
-export default Index
+export async function getStaticProps() {
+  const data = await getHomepageData()
 
-export const pageQuery = graphql`
-  query HomepageQuery {
-    prismic {
-      allHomepages {
-        edges {
-          node {
-            title
-          }
-        }
-      }
-      allBlog_posts(sortBy: date_DESC) {
-        edges {
-          node {
-            title
-            date
-            post_body
-            _meta {
-              id
-              uid
-              type
-            }
-          }
-        }
-      }
-    }
+  return {
+    props: { data },
   }
-`
+}
+
+export default Index
