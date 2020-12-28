@@ -1,7 +1,7 @@
 [context."feat/next"]
   command = "npm run build"
-  publish = ""
+  publish = "out/"
 
 [context.deploy-preview]
   command = "npm run build"
-  publish = ""
+  publish = "out/"
