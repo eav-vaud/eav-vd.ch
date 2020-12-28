@@ -5,7 +5,7 @@ import PageHeader from "../../components/page-header"
 import RichText from "../../components/rich-text"
 import { getPostData, getAllPostsWithSlug } from "../../lib/api"
 
-export const BlogPostTemplate = ({ title, description, date, content }) => (
+export const BlogPostTemplate = ({ title, date, content }) => (
   <Layout>
     <article>
       <PageHeader title={title} subtitle={date} />
