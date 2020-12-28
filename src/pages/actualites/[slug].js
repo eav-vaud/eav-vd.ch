@@ -34,8 +34,9 @@ const BlogPost = ({ data }) => {
   )
 }
 
-export async function getStaticProps() {
-  const data = await getPostData()
+export async function getStaticProps({ params }) {
+  const { slug } = params
+  const data = await getPostData(slug)
   return {
     props: { data },
     revalidate: 1,
@@ -54,13 +55,5 @@ export async function getStaticPaths() {
     fallback: false,
   }
 }
-
-// export async function getStaticPaths() {
-//   const allPosts = await getAllPostsWithSlug()
-//   return {
-//     paths: allPosts?.map(({ node }) => `/posts/${node._meta.uid}`) || [],
-//     fallback: true,
-//   }
-// }
 
 export default BlogPost

@@ -12,16 +12,19 @@ export const PrismicClient = Prismic.client(REF_API_URL, {
   accessToken: API_TOKEN,
 })
 
-async function fetchAPI(query) {
+async function fetchAPI(query, { variables } = {}) {
   const prismicAPI = await PrismicClient.getApi()
-  const res = await fetch(`${GRAPHQL_API_URL}?query=${query}`, {
-    headers: {
-      "Prismic-Ref": prismicAPI.masterRef.ref,
-      "Content-Type": "application/json",
-      "Accept-Language": API_LOCALE,
-      Authorization: `Token ${API_TOKEN}`,
-    },
-  })
+  const res = await fetch(
+    `${GRAPHQL_API_URL}?query=${query}&variables=${JSON.stringify(variables)}`,
+    {
+      headers: {
+        "Prismic-Ref": prismicAPI.masterRef.ref,
+        "Content-Type": "application/json",
+        "Accept-Language": API_LOCALE,
+        Authorization: `Token ${API_TOKEN}`,
+      },
+    }
+  )
 
   if (res.status !== 200) {
     console.log(await res.text())
@@ -54,10 +57,11 @@ export async function getAllPostsWithSlug() {
   return data?.allBlog_posts?.edges
 }
 
-export async function getPostData() {
-  const data = await fetchAPI(`
-    query BlogPostQuery($uid: String) {
-      allBlog_posts(uid: $uid) {
+export async function getPostData(slug) {
+  const data = await fetchAPI(
+    `
+    query BlogPostQuery($slug: String) {
+      allBlog_posts(uid: $slug) {
         edges {
           node {
             title
@@ -67,7 +71,11 @@ export async function getPostData() {
         }
       }
     }
-  `)
+  `,
+    {
+      variables: { slug },
+    }
+  )
 
   return data
 }
