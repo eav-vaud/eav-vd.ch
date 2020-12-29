@@ -1,6 +1,6 @@
-import React from "react"
-import PropTypes from "prop-types"
 import { Box, Heading, Text } from "@chakra-ui/core"
+import PropTypes from "prop-types"
+import React from "react"
 
 const PageHeader = ({ title, subtitle, ...props }) => (
   <Box as="header" {...props}>

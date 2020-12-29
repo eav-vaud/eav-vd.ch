@@ -1,2 +1,7 @@
-[[plugins]]
-  package = "netlify-plugin-gatsby-cache"
+[context."feat/next"]
+  command = "npm run build"
+  publish = "out/"
+
+[context.deploy-preview]
+  command = "npm run build"
+  publish = "out/"

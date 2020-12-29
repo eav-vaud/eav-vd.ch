@@ -1,23 +1,21 @@
 import React from "react"
-import { graphql } from "gatsby"
 import { Date, RichText as PrismicText } from "prismic-reactjs"
-import { linkResolver } from "../utils/link-resolver"
+import { linkResolver } from "utils/link-resolver"
 import { Stack } from "@chakra-ui/core"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import PageHeader from "../components/page-header"
-import RichText from "../components/rich-text"
-import BlogPostTeaser from "../components/blog-post-teaser"
+import Layout from "components/layout"
+import PageHeader from "components/page-header"
+import RichText from "components/rich-text"
+import BlogPostTeaser from "components/blog-post-teaser"
+import { getNewsData } from "lib/api"
 
 const BlogIndex = ({ data }) => {
-  const posts = data.prismic.allBlog_posts.edges
-  const doc = data.prismic.allNews_pages.edges.slice(0, 1).pop()
+  const posts = data.allBlog_posts.edges
+  const doc = data.allNews_pages.edges.slice(0, 1).pop()
   if (!doc) return null
 
   return (
     <Layout>
-      <SEO title={PrismicText.asText(doc.node.title)} />
       <PageHeader title={PrismicText.asText(doc.node.title)} />
       {doc.node.body && (
         <RichText mt={[3, 16]}>{PrismicText.render(doc.node.body)}</RichText>
@@ -45,33 +43,13 @@ const BlogIndex = ({ data }) => {
   )
 }
 
-export default BlogIndex
+export async function getStaticProps() {
+  const data = await getNewsData()
 
-export const pageQuery = graphql`
-  query {
-    prismic {
-      allNews_pages(uid: "actualites") {
-        edges {
-          node {
-            title
-            body
-          }
-        }
-      }
-      allBlog_posts(sortBy: date_DESC) {
-        edges {
-          node {
-            title
-            date
-            post_body
-            _meta {
-              id
-              uid
-              type
-            }
-          }
-        }
-      }
-    }
+  return {
+    props: { data },
+    revalidate: 1,
   }
-`
+}
+
+export default BlogIndex
