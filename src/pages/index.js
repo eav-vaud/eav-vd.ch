@@ -1,12 +1,12 @@
 import React from "react"
 import { Date, RichText as PrismicText } from "prismic-reactjs"
-import { linkResolver } from "../utils/link-resolver"
+import { linkResolver } from "utils/link-resolver"
 import { Stack } from "@chakra-ui/core"
 
-import Layout from "../components/layout"
-import SiteTitle from "../components/site-title"
-import BlogPostTeaser from "../components/blog-post-teaser"
-import { getHomepageData } from "../lib/api"
+import Layout from "components/layout"
+import SiteTitle from "components/site-title"
+import BlogPostTeaser from "components/blog-post-teaser"
+import { getHomepageData } from "lib/api"
 
 const Index = ({ data }) => {
   const posts = data.allBlog_posts.edges

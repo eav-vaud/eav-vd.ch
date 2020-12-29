@@ -1,9 +1,9 @@
 import { Date, RichText as PrismicText } from "prismic-reactjs"
 import React from "react"
-import Layout from "../../components/layout"
-import PageHeader from "../../components/page-header"
-import RichText from "../../components/rich-text"
-import { getPostData, getAllPostsWithSlug } from "../../lib/api"
+import Layout from "components/layout"
+import PageHeader from "components/page-header"
+import RichText from "components/rich-text"
+import { getPostData, getAllPostsWithSlug } from "lib/api"
 
 export const BlogPostTemplate = ({ title, date, content }) => (
   <Layout>

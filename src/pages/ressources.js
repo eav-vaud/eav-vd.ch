@@ -2,10 +2,10 @@ import React from "react"
 import { RichText as PrismicText } from "prismic-reactjs"
 import { Box, Heading, Text, Link, List, ListItem, Icon } from "@chakra-ui/core"
 
-import Layout from "../components/layout"
-import PageHeader from "../components/page-header"
-import RichText from "../components/rich-text"
-import { getResourcesData } from "../lib/api"
+import Layout from "components/layout"
+import PageHeader from "components/page-header"
+import RichText from "components/rich-text"
+import { getResourcesData } from "lib/api"
 
 const Resources = ({ data }) => {
   const doc = data.allResources_pages.edges.slice(0, 1).pop()

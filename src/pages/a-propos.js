@@ -1,10 +1,10 @@
 import React from "react"
 import { RichText as PrismicText } from "prismic-reactjs"
 
-import Layout from "../components/layout"
-import PageHeader from "../components/page-header"
-import RichText from "../components/rich-text"
-import { getAboutData } from "../lib/api"
+import Layout from "components/layout"
+import PageHeader from "components/page-header"
+import RichText from "components/rich-text"
+import { getAboutData } from "lib/api"
 
 const About = ({ data }) => {
   const doc = data.allPages.edges.slice(0, 1).pop()
