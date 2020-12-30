@@ -1,4 +1,5 @@
 import React from "react"
+import Head from "next/head"
 import PropTypes from "prop-types"
 import { ThemeProvider, CSSReset } from "@chakra-ui/core"
 import eavTheme from "utils/theme"
@@ -8,6 +9,9 @@ import Header from "./header.js"
 
 const Layout = ({ children }) => (
   <ThemeProvider theme={eavTheme}>
+    <Head>
+      <link rel="icon" type="image/png" href="/favicon.png" />
+    </Head>
     <CSSReset />
     <Grid
       fontFamily="body"
