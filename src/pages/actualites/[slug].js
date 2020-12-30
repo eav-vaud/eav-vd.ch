@@ -1,5 +1,6 @@
 import { Date, RichText as PrismicText } from "prismic-reactjs"
 import React from "react"
+import Head from "next/head"
 import Layout from "components/layout"
 import PageHeader from "components/page-header"
 import RichText from "components/rich-text"
@@ -7,6 +8,9 @@ import { getPostData, getAllPostsWithSlug } from "lib/api"
 
 export const BlogPostTemplate = ({ title, date, content }) => (
   <Layout>
+    <Head>
+      <title>{title} | EAV Vaud</title>
+    </Head>
     <article>
       <PageHeader title={title} subtitle={date} />
       <RichText mt={[8, 16]}>{content}</RichText>

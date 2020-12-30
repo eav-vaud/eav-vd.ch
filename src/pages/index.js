@@ -1,4 +1,5 @@
 import React from "react"
+import Head from "next/head"
 import { Date, RichText as PrismicText } from "prismic-reactjs"
 import { linkResolver } from "utils/link-resolver"
 import { Stack } from "@chakra-ui/core"
@@ -15,6 +16,11 @@ const Index = ({ data }) => {
 
   return (
     <Layout>
+      <Head>
+        <title>
+          Association Enseignant⋅e⋅s d'Arts Visuels du canton de Vaud
+        </title>
+      </Head>
       <SiteTitle />
       <Stack spacing={[16, 20]} mt={[8, 16]}>
         {posts.map(({ node }) => {

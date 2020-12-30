@@ -1,4 +1,5 @@
 import React from "react"
+import Head from "next/head"
 import { RichText as PrismicText } from "prismic-reactjs"
 import { Box, Heading, Text, Link, List, ListItem, Icon } from "@chakra-ui/core"
 
@@ -15,6 +16,9 @@ const Resources = ({ data }) => {
 
   return (
     <Layout>
+      <Head>
+        <title>Ressources | EAV Vaud</title>
+      </Head>
       <PageHeader title={PrismicText.asText(doc.node.title)} />
       {doc.node.body && (
         <RichText mt={[3, 16]}>{PrismicText.render(doc.node.body)}</RichText>

@@ -1,4 +1,5 @@
 import React from "react"
+import Head from "next/head"
 import { Date, RichText as PrismicText } from "prismic-reactjs"
 import { linkResolver } from "utils/link-resolver"
 import { Stack } from "@chakra-ui/core"
@@ -16,6 +17,9 @@ const BlogIndex = ({ data }) => {
 
   return (
     <Layout>
+      <Head>
+        <title>Actualités | EAV Vaud</title>
+      </Head>
       <PageHeader title={PrismicText.asText(doc.node.title)} />
       {doc.node.body && (
         <RichText mt={[3, 16]}>{PrismicText.render(doc.node.body)}</RichText>

@@ -1,4 +1,5 @@
 import React from "react"
+import Head from "next/head"
 import { RichText as PrismicText } from "prismic-reactjs"
 
 import Layout from "components/layout"
@@ -12,6 +13,9 @@ const Contact = ({ data }) => {
 
   return (
     <Layout>
+      <Head>
+        <title>Contact | EAV Vaud</title>
+      </Head>
       <PageHeader title={PrismicText.asText(doc.node.title)} />
       <RichText mt={[3, 16]}>{PrismicText.render(doc.node.page_body)}</RichText>
     </Layout>
