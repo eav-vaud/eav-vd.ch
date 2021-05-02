@@ -17,6 +17,10 @@ const nav = [
     slug: 'ressources',
   },
   {
+    title: "S'inscrire",
+    slug: 'sinscrire',
+  },
+  {
     title: 'Contact',
     slug: 'contact',
   },
