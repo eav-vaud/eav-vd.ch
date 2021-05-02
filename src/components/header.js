@@ -1,7 +1,7 @@
 import React from "react"
 import NextLink from "next/link"
 import { useRouter } from "next/router"
-import { Link, Box, Stack } from "@chakra-ui/core"
+import { Link, Box, Stack } from "@chakra-ui/react"
 
 const nav = [
   {
@@ -54,8 +54,8 @@ const Header = ({ ...props }) => {
 
       <Stack
         as="nav"
-        isInline
-        spacing={8}
+        direction={["column", "row"]}
+        spacing={{ sm: 8 }}
         flexWrap="wrap"
         mt={[4, null, 0]}
         ml={{ md: 8 }}

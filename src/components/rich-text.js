@@ -1,21 +1,22 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx } from "@emotion/core"
+import { jsx } from "@emotion/react"
 import PropTypes from "prop-types"
-import { useTheme } from "emotion-theming"
-import { Box } from "@chakra-ui/core"
+import { useTheme, Box } from "@chakra-ui/react"
 
 const RichText = ({ children, ...props }) => {
   const theme = useTheme()
   const breakpoints = theme.breakpoints
 
-  const mq = breakpoints.map(bp => `@media (min-width: ${bp})`)
+  const mq = Object.keys(breakpoints).map(
+    (key, index) => `@media (min-width: ${breakpoints[key]})`
+  )
 
   return (
     <Box
       css={{
         fontSize: theme.fontSizes[`xl`],
-        [mq[0]]: {
+        [mq[1]]: {
           fontSize: theme.fontSizes[`3xl`],
         },
         "> * + *": {
@@ -27,7 +28,7 @@ const RichText = ({ children, ...props }) => {
         },
         h1: {
           fontSize: theme.fontSizes[`4xl`],
-          [mq[0]]: {
+          [mq[1]]: {
             fontSize: theme.fontSizes[`6xl`],
           },
           fontWeight: theme.fontWeights.bold,
@@ -35,7 +36,7 @@ const RichText = ({ children, ...props }) => {
         },
         h2: {
           fontSize: theme.fontSizes[`3xl`],
-          [mq[0]]: {
+          [mq[1]]: {
             fontSize: theme.fontSizes[`5xl`],
           },
           fontWeight: theme.fontWeights.bold,
@@ -43,7 +44,7 @@ const RichText = ({ children, ...props }) => {
         },
         h3: {
           fontSize: theme.fontSizes[`2xl`],
-          [mq[0]]: {
+          [mq[1]]: {
             fontSize: theme.fontSizes[`4xl`],
           },
           fontWeight: theme.fontWeights.bold,

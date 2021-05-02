@@ -1,7 +1,8 @@
 import React from "react"
 import Head from "next/head"
 import { RichText as PrismicText } from "prismic-reactjs"
-import { Box, Heading, Text, Link, List, ListItem, Icon } from "@chakra-ui/core"
+import { Box, Heading, Text, Link, List, ListItem } from "@chakra-ui/react"
+import { AttachmentIcon, ExternalLinkIcon } from "@chakra-ui/icons"
 
 import Layout from "components/layout"
 import PageHeader from "components/page-header"
@@ -41,8 +42,7 @@ const Resources = ({ data }) => {
                 fontSize={["xl", "3xl"]}
                 alignItems="baseline"
               >
-                <Icon
-                  name="attachment"
+                <AttachmentIcon
                   flexShrink="0"
                   position="relative"
                   top="1"
@@ -80,8 +80,7 @@ const Resources = ({ data }) => {
                 lineHeight="short"
                 alignItems="baseline"
               >
-                <Icon
-                  name="external-link"
+                <ExternalLinkIcon
                   flexShrink="0"
                   position="relative"
                   top="1"

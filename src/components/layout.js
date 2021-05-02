@@ -1,18 +1,15 @@
 import React from "react"
 import Head from "next/head"
 import PropTypes from "prop-types"
-import { ThemeProvider, CSSReset } from "@chakra-ui/core"
-import eavTheme from "utils/theme"
-import { Grid, Box } from "@chakra-ui/core"
+import { Grid, Box } from "@chakra-ui/react"
 
-import Header from "./header.js"
+import Header from "components/header"
 
 const Layout = ({ children }) => (
-  <ThemeProvider theme={eavTheme}>
+  <>
     <Head>
       <link rel="icon" type="image/png" href="/favicon.png" />
     </Head>
-    <CSSReset />
     <Grid
       fontFamily="body"
       templateColumns="minmax(1rem, 1fr) minmax(auto, 60em) minmax(1rem, 1fr)"
@@ -23,7 +20,7 @@ const Layout = ({ children }) => (
         {children}
       </Box>
     </Grid>
-  </ThemeProvider>
+  </>
 )
 
 Layout.propTypes = {
