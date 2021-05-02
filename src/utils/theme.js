@@ -1,16 +1,14 @@
-import { theme } from "@chakra-ui/core"
+import { extendTheme } from "@chakra-ui/react"
 
-const eavTheme = {
-  ...theme,
-  fonts: {
-    ...theme.fonts,
-    body: "Fira Sans, sans-serif",
-    heading: "Fira Sans, sans-serif",
-  },
-  colors: {
-    ...theme.colors,
-    brand: "#392079",
-  },
+const fonts = {
+  body: "Fira Sans, sans-serif",
+  heading: "Fira Sans, sans-serif",
 }
 
-export default eavTheme
+const colors = {
+  brand: "#392079",
+}
+
+const theme = extendTheme({ fonts, colors })
+
+export default theme

@@ -1,7 +1,7 @@
 import React from "react"
 import NextLink from "next/link"
 import { useRouter } from "next/router"
-import { Link, Box, Stack } from "@chakra-ui/core"
+import { Link, Box, Stack } from "@chakra-ui/react"
 
 const nav = [
   {

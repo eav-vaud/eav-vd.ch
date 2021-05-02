@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import NextLink from "next/link"
-import { Box, Heading, Text, Link } from "@chakra-ui/core"
+import { Box, Heading, Text, Link } from "@chakra-ui/react"
 
 const BlogPostTeaser = ({ slug, title, date, description, ...props }) => (
   <Box as="article" {...props}>

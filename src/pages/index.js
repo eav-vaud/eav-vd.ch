@@ -2,7 +2,7 @@ import React from "react"
 import Head from "next/head"
 import { Date, RichText as PrismicText } from "prismic-reactjs"
 import { linkResolver } from "utils/link-resolver"
-import { Stack } from "@chakra-ui/core"
+import { Stack } from "@chakra-ui/react"
 
 import Layout from "components/layout"
 import SiteTitle from "components/site-title"
