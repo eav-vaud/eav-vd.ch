@@ -1,24 +1,24 @@
-import React from "react"
-import NextLink from "next/link"
-import { useRouter } from "next/router"
-import { Link, Box, Stack } from "@chakra-ui/react"
+import React from 'react'
+import NextLink from 'next/link'
+import { useRouter } from 'next/router'
+import { Link, Box, Stack } from '@chakra-ui/react'
 
 const nav = [
   {
-    title: "Actualités",
-    slug: "actualites",
+    title: 'Actualités',
+    slug: 'actualites',
   },
   {
-    title: "À propos",
-    slug: "a-propos",
+    title: 'À propos',
+    slug: 'a-propos',
   },
   {
-    title: "Ressources",
-    slug: "ressources",
+    title: 'Ressources',
+    slug: 'ressources',
   },
   {
-    title: "Contact",
-    slug: "contact",
+    title: 'Contact',
+    slug: 'contact',
   },
 ]
 
@@ -28,7 +28,7 @@ const Header = ({ ...props }) => {
   return (
     <Box
       as="header"
-      display={{ md: "flex" }}
+      display={{ md: 'flex' }}
       pt={[8, 12]}
       pb={[8, 16]}
       justifyContent="space-between"
@@ -54,7 +54,7 @@ const Header = ({ ...props }) => {
 
       <Stack
         as="nav"
-        direction={["column", "row"]}
+        direction={['column', 'row']}
         spacing={{ sm: 8 }}
         flexWrap="wrap"
         mt={[4, null, 0]}
@@ -64,10 +64,10 @@ const Header = ({ ...props }) => {
           <Box key={navLink.slug}>
             <NextLink href={`/${navLink.slug}`} passHref>
               <Link
-                fontSize={["xl", "3xl"]}
+                fontSize={['xl', '3xl']}
                 fontWeight="bold"
                 textDecoration={
-                  router.pathname.includes(navLink.slug) && "underline"
+                  router.pathname.includes(navLink.slug) && 'underline'
                 }
               >
                 {navLink.title}

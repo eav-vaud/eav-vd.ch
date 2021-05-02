@@ -1,8 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx } from "@emotion/react"
-import PropTypes from "prop-types"
-import { useTheme, Box } from "@chakra-ui/react"
+import { jsx } from '@emotion/react'
+import PropTypes from 'prop-types'
+import { useTheme, Box } from '@chakra-ui/react'
 
 const RichText = ({ children, ...props }) => {
   const theme = useTheme()
@@ -19,7 +19,7 @@ const RichText = ({ children, ...props }) => {
         [mq[1]]: {
           fontSize: theme.fontSizes[`3xl`],
         },
-        "> * + *": {
+        '> * + *': {
           marginTop: `1.5em`,
         },
         a: {

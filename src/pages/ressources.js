@@ -1,13 +1,13 @@
-import React from "react"
-import Head from "next/head"
-import { RichText as PrismicText } from "prismic-reactjs"
-import { Box, Heading, Text, Link, List, ListItem } from "@chakra-ui/react"
-import { AttachmentIcon, ExternalLinkIcon } from "@chakra-ui/icons"
+import React from 'react'
+import Head from 'next/head'
+import { RichText as PrismicText } from 'prismic-reactjs'
+import { Box, Heading, Text, Link, List, ListItem } from '@chakra-ui/react'
+import { AttachmentIcon, ExternalLinkIcon } from '@chakra-ui/icons'
 
-import Layout from "components/layout"
-import PageHeader from "components/page-header"
-import RichText from "components/rich-text"
-import { getResourcesData } from "lib/api"
+import Layout from 'components/layout'
+import PageHeader from 'components/page-header'
+import RichText from 'components/rich-text'
+import { getResourcesData } from 'lib/api'
 
 const Resources = ({ data }) => {
   const doc = data.allResources_pages.edges.slice(0, 1).pop()
@@ -26,7 +26,7 @@ const Resources = ({ data }) => {
       )}
       {files && (
         <Box as="section" mt={[8, 12]}>
-          <Heading as="h2" fontSize={["2xl", "4xl"]}>
+          <Heading as="h2" fontSize={['2xl', '4xl']}>
             Documents
           </Heading>
           <List
@@ -39,7 +39,7 @@ const Resources = ({ data }) => {
               <ListItem
                 key={index}
                 display="inline-flex"
-                fontSize={["xl", "3xl"]}
+                fontSize={['xl', '3xl']}
                 alignItems="baseline"
               >
                 <AttachmentIcon
@@ -63,7 +63,7 @@ const Resources = ({ data }) => {
       )}
       {links && (
         <Box as="section" mt={[8, 12]}>
-          <Heading as="h2" fontSize={["2xl", "4xl"]}>
+          <Heading as="h2" fontSize={['2xl', '4xl']}>
             Liens
           </Heading>
           <List
@@ -76,7 +76,7 @@ const Resources = ({ data }) => {
               <ListItem
                 key={index}
                 display="inline-flex"
-                fontSize={["xl", "3xl"]}
+                fontSize={['xl', '3xl']}
                 lineHeight="short"
                 alignItems="baseline"
               >
@@ -96,7 +96,7 @@ const Resources = ({ data }) => {
                     {PrismicText.asText(link.link_title)}
                   </Link>
                   {link.link_description && (
-                    <Text mt="1" fontSize={["lg", "2xl"]}>
+                    <Text mt="1" fontSize={['lg', '2xl']}>
                       {PrismicText.asText(link.link_description)}
                     </Text>
                   )}
