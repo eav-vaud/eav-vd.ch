@@ -68,7 +68,7 @@ const Header = ({ ...props }) => {
           <Box key={navLink.slug}>
             <NextLink href={`/${navLink.slug}`} passHref>
               <Link
-                fontSize={['xl', '3xl']}
+                fontSize={['xl', '2xl']}
                 fontWeight="bold"
                 textDecoration={
                   router.pathname.includes(navLink.slug) && 'underline'
