@@ -1,10 +1,10 @@
-import { Date, RichText as PrismicText } from "prismic-reactjs"
-import React from "react"
-import Head from "next/head"
-import Layout from "components/layout"
-import PageHeader from "components/page-header"
-import RichText from "components/rich-text"
-import { getPostData, getAllPostsWithSlug } from "lib/api"
+import { Date, RichText as PrismicText } from 'prismic-reactjs'
+import React from 'react'
+import Head from 'next/head'
+import Layout from 'components/layout'
+import PageHeader from 'components/page-header'
+import RichText from 'components/rich-text'
+import { getPostData, getAllPostsWithSlug } from 'lib/api'
 
 export const BlogPostTemplate = ({ title, date, content }) => (
   <Layout>
@@ -22,10 +22,10 @@ const BlogPost = ({ data }) => {
   const doc = data.allBlog_posts.edges.slice(0, 1).pop()
   if (!doc) return null
 
-  const formattedDate = Intl.DateTimeFormat("fr-CH", {
-    year: "numeric",
-    month: "long",
-    day: "2-digit",
+  const formattedDate = Intl.DateTimeFormat('fr-CH', {
+    year: 'numeric',
+    month: 'long',
+    day: '2-digit',
   }).format(Date(doc.node.date))
 
   return (

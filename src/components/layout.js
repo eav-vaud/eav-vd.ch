@@ -1,9 +1,9 @@
-import React from "react"
-import Head from "next/head"
-import PropTypes from "prop-types"
-import { Grid, Box } from "@chakra-ui/react"
+import React from 'react'
+import Head from 'next/head'
+import PropTypes from 'prop-types'
+import { Grid, Box } from '@chakra-ui/react'
 
-import Header from "components/header"
+import Header from 'components/header'
 
 const Layout = ({ children }) => (
   <>

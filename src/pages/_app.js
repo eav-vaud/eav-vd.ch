@@ -1,5 +1,5 @@
-import { ChakraProvider } from "@chakra-ui/react"
-import eavTheme from "utils/theme"
+import { ChakraProvider } from '@chakra-ui/react'
+import eavTheme from 'utils/theme'
 
 function EavApp({ Component, pageProps }) {
   return (

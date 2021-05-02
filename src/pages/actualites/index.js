@@ -1,14 +1,14 @@
-import React from "react"
-import Head from "next/head"
-import { Date, RichText as PrismicText } from "prismic-reactjs"
-import { linkResolver } from "utils/link-resolver"
-import { Stack } from "@chakra-ui/react"
+import React from 'react'
+import Head from 'next/head'
+import { Date, RichText as PrismicText } from 'prismic-reactjs'
+import { linkResolver } from 'utils/link-resolver'
+import { Stack } from '@chakra-ui/react'
 
-import Layout from "components/layout"
-import PageHeader from "components/page-header"
-import RichText from "components/rich-text"
-import BlogPostTeaser from "components/blog-post-teaser"
-import { getNewsData } from "lib/api"
+import Layout from 'components/layout'
+import PageHeader from 'components/page-header'
+import RichText from 'components/rich-text'
+import BlogPostTeaser from 'components/blog-post-teaser'
+import { getNewsData } from 'lib/api'
 
 const BlogIndex = ({ data }) => {
   const posts = data.allBlog_posts.edges
@@ -26,10 +26,10 @@ const BlogIndex = ({ data }) => {
       )}
       <Stack spacing={[16, 20]} mt={[8, 12]}>
         {posts.map(({ node }) => {
-          const formattedDate = Intl.DateTimeFormat("fr-CH", {
-            year: "numeric",
-            month: "long",
-            day: "2-digit",
+          const formattedDate = Intl.DateTimeFormat('fr-CH', {
+            year: 'numeric',
+            month: 'long',
+            day: '2-digit',
           }).format(Date(node.date))
 
           return (
