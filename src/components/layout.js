@@ -1,13 +1,12 @@
 import React from "react"
 import Head from "next/head"
 import PropTypes from "prop-types"
-import { ChakraProvider, Grid, Box } from "@chakra-ui/react"
-import eavTheme from "utils/theme"
+import { Grid, Box } from "@chakra-ui/react"
 
-import Header from "./header.js"
+import Header from "components/header"
 
 const Layout = ({ children }) => (
-  <ChakraProvider theme={eavTheme}>
+  <>
     <Head>
       <link rel="icon" type="image/png" href="/favicon.png" />
     </Head>
@@ -21,7 +20,7 @@ const Layout = ({ children }) => (
         {children}
       </Box>
     </Grid>
-  </ChakraProvider>
+  </>
 )
 
 Layout.propTypes = {

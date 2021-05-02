@@ -12,7 +12,6 @@ const RichText = ({ children, ...props }) => {
     (key, index) => `@media (min-width: ${breakpoints[key]})`
   )
 
-  console.log(mq)
   return (
     <Box
       css={{
