@@ -54,8 +54,8 @@ const Header = ({ ...props }) => {
 
       <Stack
         as="nav"
-        isInline
-        spacing={8}
+        direction={["column", "row"]}
+        gap={8}
         flexWrap="wrap"
         mt={[4, null, 0]}
         ml={{ md: 8 }}
