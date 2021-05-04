@@ -56,11 +56,16 @@ const Signup = () => {
           </FormControl>
           <FormControl id="phone" isRequired>
             <FormLabel fontSize="xl">Téléphone</FormLabel>
-            <Input placeholder="Téléphone" type="text" size="lg" />
+            <Input name="phone" placeholder="Téléphone" type="text" size="lg" />
           </FormControl>
           <FormControl id="birthday" isRequired>
             <FormLabel fontSize="xl">Date de naissance</FormLabel>
-            <Input placeholder="Date de naissance" type="text" size="lg" />
+            <Input
+              name="birthday"
+              placeholder="Date de naissance"
+              type="text"
+              size="lg"
+            />
           </FormControl>
           <FormControl id="diploma">
             <FormLabel fontSize="xl">Diplôme d'enseignement</FormLabel>
@@ -90,7 +95,12 @@ const Signup = () => {
           </FormControl>
           <FormControl id="teachingFields">
             <FormLabel fontSize="xl">Branches enseignées</FormLabel>
-            <Input name="teachingFields" placeholder="Branches enseignées" type="text" size="lg" />
+            <Input
+              name="teachingFields"
+              placeholder="Branches enseignées"
+              type="text"
+              size="lg"
+            />
           </FormControl>
           <FormControl as="fieldset" id="teachingLevel" isRequired>
             <FormLabel as="legend" fontSize="xl">
@@ -98,8 +108,12 @@ const Signup = () => {
             </FormLabel>
             <RadioGroup name="teachingLevel" defaultValue="Secondaire I">
               <HStack spacing={8}>
-                <Radio size="lg" value="Secondaire I">Secondaire I</Radio>
-                <Radio size="lg" value="Gymnase">Gymnase</Radio>
+                <Radio size="lg" value="Secondaire I">
+                  Secondaire I
+                </Radio>
+                <Radio size="lg" value="Gymnase">
+                  Gymnase
+                </Radio>
               </HStack>
             </RadioGroup>
           </FormControl>
