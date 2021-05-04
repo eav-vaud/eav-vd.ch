@@ -96,10 +96,10 @@ const Signup = () => {
             <FormLabel as="legend" fontSize="xl">
               Degré
             </FormLabel>
-            <RadioGroup name="teachingLevel" defaultValue="secondaire">
+            <RadioGroup name="teachingLevel" defaultValue="Secondaire I">
               <HStack spacing={8}>
-                <Radio size="lg" value="secondaire">Secondaire I</Radio>
-                <Radio size="lg" value="gymnase">Gymnase</Radio>
+                <Radio size="lg" value="Secondaire I">Secondaire I</Radio>
+                <Radio size="lg" value="Gymnase">Gymnase</Radio>
               </HStack>
             </RadioGroup>
           </FormControl>
