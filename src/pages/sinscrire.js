@@ -30,19 +30,29 @@ const Signup = () => {
         <Grid templateColumns="repeat(2, 1fr)" rowGap={10} columnGap={8}>
           <FormControl id="lastname" isRequired>
             <FormLabel fontSize="xl">Nom</FormLabel>
-            <Input placeholder="Nom" type="text" size="lg" />
+            <Input name="lastname" placeholder="Nom" type="text" size="lg" />
           </FormControl>
           <FormControl id="firstname" isRequired>
             <FormLabel fontSize="xl">Prénom</FormLabel>
-            <Input placeholder="Prénom" type="text" size="lg" />
+            <Input
+              name="firstname"
+              placeholder="Prénom"
+              type="text"
+              size="lg"
+            />
           </FormControl>
           <FormControl id="location" isRequired>
             <FormLabel fontSize="xl">NPA + Localité</FormLabel>
-            <Input placeholder="NPA + Localité" type="text" size="lg" />
+            <Input
+              name="location"
+              placeholder="NPA + Localité"
+              type="text"
+              size="lg"
+            />
           </FormControl>
           <FormControl id="email" isRequired>
             <FormLabel fontSize="xl">Email</FormLabel>
-            <Input placeholder="Email" type="email" size="lg" />
+            <Input name="email" placeholder="Email" type="email" size="lg" />
           </FormControl>
           <FormControl id="phone" isRequired>
             <FormLabel fontSize="xl">Téléphone</FormLabel>
@@ -54,11 +64,21 @@ const Signup = () => {
           </FormControl>
           <FormControl id="diploma">
             <FormLabel fontSize="xl">Diplôme d'enseignement</FormLabel>
-            <Input placeholder="Diplôme d'enseignement" type="text" size="lg" />
+            <Input
+              name="diploma"
+              placeholder="Diplôme d'enseignement"
+              type="text"
+              size="lg"
+            />
           </FormControl>
           <FormControl id="diplomaYear">
             <FormLabel fontSize="xl">Année du diplôme</FormLabel>
-            <Input placeholder="Année du diplôme" type="text" size="lg" />
+            <Input
+              name="diplomaYear"
+              placeholder="Année du diplôme"
+              type="text"
+              size="lg"
+            />
           </FormControl>
           <FormControl id="diplomaYear" isRequired>
             <FormLabel fontSize="xl">Etablissement(s) scolaire(s)</FormLabel>
@@ -70,7 +90,7 @@ const Signup = () => {
           </FormControl>
           <FormControl id="teachingFields">
             <FormLabel fontSize="xl">Branches enseignées</FormLabel>
-            <Input placeholder="Branches enseignées" type="text" size="lg" />
+            <Input name="teachingFields" placeholder="Branches enseignées" type="text" size="lg" />
           </FormControl>
           <FormControl as="fieldset" id="teachingLevel" isRequired>
             <FormLabel as="legend" fontSize="xl">
