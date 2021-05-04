@@ -85,9 +85,10 @@ const Signup = () => {
               size="lg"
             />
           </FormControl>
-          <FormControl id="diplomaYear" isRequired>
+          <FormControl id="schools" isRequired>
             <FormLabel fontSize="xl">Etablissement(s) scolaire(s)</FormLabel>
             <Input
+              name="schools"
               placeholder="Etablissement(s) scolaire(s)"
               type="text"
               size="lg"
