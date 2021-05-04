@@ -26,6 +26,7 @@ const Signup = () => {
         method="POST"
         data-netlify="true"
       >
+        <input type="hidden" name="form-name" value="Inscription" />
         <Grid templateColumns="repeat(2, 1fr)" rowGap={10} columnGap={8}>
           <FormControl id="lastname" isRequired>
             <FormLabel fontSize="xl">Nom</FormLabel>
