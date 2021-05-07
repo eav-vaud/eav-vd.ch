@@ -34,7 +34,7 @@ const Header = ({ ...props }) => {
       as="header"
       display={{ md: 'flex' }}
       pt={[8, 12]}
-      pb={[8, 16]}
+      pb={[8, 20]}
       justifyContent="space-between"
       alignItems="baseline"
       {...props}
