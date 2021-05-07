@@ -17,17 +17,27 @@ const Signup = () => {
         <title>S'inscrire | EAV Vaud</title>
       </Head>
       <PageHeader title="S'inscrire" />
-      <RichText my={[3, 16]}>
-        <p>Texte d'introduction</p>
+      <RichText mt={[3, 16]} mb={[8, 16]}>
+        <p>
+          Pour CHF 100.- par année, l’affiliation à l’EAV te donne accès à du
+          conseil et à une protection juridique de la part de SUD. L’EAV promeut
+          l’enseignement des arts visuels par l’échange de pratiques
+          pédagogiques, des réflexions sur la branche, l’organisation de
+          journées pédagogiques et d’expositions de travaux d’élèves.
+        </p>
       </RichText>
       <form
         name="Inscription"
-        action="/succes"
+        action="/sinscrire/confirmation"
         method="POST"
         data-netlify="true"
       >
         <input type="hidden" name="form-name" value="Inscription" />
-        <Grid templateColumns="repeat(2, 1fr)" rowGap={10} columnGap={8}>
+        <Grid
+          templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
+          rowGap={{ base: 8, md: 10 }}
+          columnGap={8}
+        >
           <FormControl id="lastname" isRequired>
             <FormLabel fontSize="xl">Nom</FormLabel>
             <Input name="lastname" placeholder="Nom" type="text" size="lg" />
