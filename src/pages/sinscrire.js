@@ -117,7 +117,11 @@ const Signup = () => {
             <FormLabel as="legend" fontSize="xl">
               Degré
             </FormLabel>
-            <RadioGroup name="teachingLevel" defaultValue="Secondaire I">
+            <RadioGroup
+              name="teachingLevel"
+              defaultValue="Secondaire I"
+              colorScheme="primary"
+            >
               <HStack spacing={8}>
                 <Radio size="lg" value="Secondaire I">
                   Secondaire I
@@ -130,8 +134,15 @@ const Signup = () => {
           </FormControl>
         </Grid>
 
-        <Box mt={12}>
-          <Button colorScheme="purple" size="lg" type="submit">
+        <Box mt={16}>
+          <Button
+            colorScheme="primary"
+            size="lg"
+            fontSize="2xl"
+            type="submit"
+            px={20}
+            py={10}
+          >
             Envoyer
           </Button>
         </Box>
