@@ -19,7 +19,16 @@ const Success = () => {
       </Stack>
 
       <RichText mt={[3, 16]}>
-        <p>Texte de confirmation qui explique les prochaines étapes</p>
+        <p>
+          Merci pour votre intérêt et inscription. Vous faites maintenant partie
+          de l’EAV !
+        </p>
+        <p>
+          Vous avez également été ajouté⋅e à la mailing liste et recevrez
+          dorénavant les informations concernant les activités de l'EAV par
+          e-mail. Nous vous contacterons prochainement avec les informations
+          pour le versement de la cotisation annuelle.
+        </p>
       </RichText>
     </Layout>
   )
