@@ -17,6 +17,10 @@ const nav = [
     slug: 'ressources',
   },
   {
+    title: "S'inscrire",
+    slug: 'sinscrire',
+  },
+  {
     title: 'Contact',
     slug: 'contact',
   },
@@ -30,7 +34,7 @@ const Header = ({ ...props }) => {
       as="header"
       display={{ md: 'flex' }}
       pt={[8, 12]}
-      pb={[8, 16]}
+      pb={[8, 20]}
       justifyContent="space-between"
       alignItems="baseline"
       {...props}
@@ -64,7 +68,7 @@ const Header = ({ ...props }) => {
           <Box key={navLink.slug}>
             <NextLink href={`/${navLink.slug}`} passHref>
               <Link
-                fontSize={['xl', '3xl']}
+                fontSize={['xl', '2xl']}
                 fontWeight="bold"
                 textDecoration={
                   router.pathname.includes(navLink.slug) && 'underline'
