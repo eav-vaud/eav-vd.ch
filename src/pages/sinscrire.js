@@ -51,6 +51,10 @@ const Signup = () => {
               size="lg"
             />
           </FormControl>
+          <FormControl id="address" isRequired>
+            <FormLabel fontSize="xl">Adresse</FormLabel>
+            <Input name="address" placeholder="Adresse" type="text" size="lg" />
+          </FormControl>
           <FormControl id="location" isRequired>
             <FormLabel fontSize="xl">NPA + Localité</FormLabel>
             <Input
@@ -113,26 +117,32 @@ const Signup = () => {
               size="lg"
             />
           </FormControl>
-          <FormControl as="fieldset" id="teachingLevel" isRequired>
-            <FormLabel as="legend" fontSize="xl">
-              Degré
-            </FormLabel>
-            <RadioGroup
-              name="teachingLevel"
-              defaultValue="Secondaire I"
-              colorScheme="primary"
-            >
-              <HStack spacing={8}>
-                <Radio size="lg" value="Secondaire I">
-                  Secondaire I
-                </Radio>
-                <Radio size="lg" value="Gymnase">
-                  Gymnase
-                </Radio>
-              </HStack>
-            </RadioGroup>
-          </FormControl>
         </Grid>
+
+        <FormControl
+          as="fieldset"
+          id="teachingLevel"
+          mt={{ base: 8, md: 10 }}
+          isRequired
+        >
+          <FormLabel as="legend" fontSize="xl">
+            Degré
+          </FormLabel>
+          <RadioGroup
+            name="teachingLevel"
+            defaultValue="Secondaire I"
+            colorScheme="primary"
+          >
+            <HStack spacing={8}>
+              <Radio size="lg" value="Secondaire I">
+                Secondaire I
+              </Radio>
+              <Radio size="lg" value="Gymnase">
+                Gymnase
+              </Radio>
+            </HStack>
+          </RadioGroup>
+        </FormControl>
 
         <Box mt={16}>
           <Button
